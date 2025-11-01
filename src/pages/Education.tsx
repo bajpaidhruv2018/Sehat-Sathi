@@ -1,5 +1,8 @@
-import { Droplets, Syringe, Apple, Pill, Shield, Baby } from "lucide-react";
+import { useState } from "react";
+import { Droplets, Syringe, Apple, Pill, Shield, Baby, X } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 const educationTopics = [
   {
@@ -47,6 +50,8 @@ const educationTopics = [
 ];
 
 const Education = () => {
+  const [selectedTopic, setSelectedTopic] = useState<typeof educationTopics[0] | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -68,6 +73,7 @@ const Education = () => {
               return (
                 <Card
                   key={index}
+                  onClick={() => setSelectedTopic(topic)}
                   className="group cursor-pointer overflow-hidden border-2 border-border transition-all duration-300 hover:scale-105 hover:border-primary hover:shadow-soft"
                 >
                   <CardHeader>
@@ -112,6 +118,59 @@ const Education = () => {
           </div>
         </div>
       </section>
+
+      {/* Topic Detail Dialog */}
+      <Dialog open={!!selectedTopic} onOpenChange={() => setSelectedTopic(null)}>
+        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-2xl">
+          {selectedTopic && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-3">
+                  <div className={`rounded-xl ${selectedTopic.color} p-3 shadow-md`}>
+                    {(() => {
+                      const IconComponent = selectedTopic.icon;
+                      return <IconComponent className="h-8 w-8 text-white" />;
+                    })()}
+                  </div>
+                  <DialogTitle className="text-2xl">{selectedTopic.title}</DialogTitle>
+                </div>
+              </DialogHeader>
+              
+              <div className="mt-4 space-y-6">
+                <div>
+                  <h3 className="mb-2 text-lg font-semibold">Overview</h3>
+                  <p className="text-muted-foreground">{selectedTopic.description}</p>
+                </div>
+
+                <div>
+                  <h3 className="mb-3 text-lg font-semibold">Topics Covered</h3>
+                  <div className="space-y-3">
+                    {selectedTopic.topics.map((item, i) => (
+                      <div key={i} className="rounded-lg border border-border bg-muted/50 p-4">
+                        <div className="flex items-start gap-3">
+                          <div className="mt-1 h-2 w-2 rounded-full bg-primary flex-shrink-0" />
+                          <div>
+                            <p className="font-medium">{item}</p>
+                            <p className="mt-1 text-sm text-muted-foreground">
+                              Detailed information about {item.toLowerCase()} and best practices.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-lg bg-primary/10 p-4">
+                  <p className="text-sm text-muted-foreground">
+                    💡 This content is now saved offline and can be accessed without internet connection.
+                  </p>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
