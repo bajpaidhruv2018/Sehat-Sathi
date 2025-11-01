@@ -18,10 +18,10 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <div className="rounded-full bg-gradient-hero p-2">
+          <div className="rounded-full bg-gradient-primary p-2">
             <Heart className="h-6 w-6 text-white" />
           </div>
-          <span className="text-xl font-bold text-foreground">HealthConnect</span>
+          <span className="font-heading text-xl font-bold text-foreground">HealthConnect</span>
         </Link>
 
         {/* Desktop Navigation */}

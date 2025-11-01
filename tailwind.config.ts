@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Open Sans', 'system-ui', 'sans-serif'],
+        heading: ['Poppins', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -68,11 +72,14 @@ export default {
       },
       boxShadow: {
         soft: "var(--shadow-soft)",
+        medium: "var(--shadow-medium)",
+        strong: "var(--shadow-strong)",
         card: "var(--shadow-card)",
       },
       backgroundImage: {
         "gradient-hero": "var(--gradient-hero)",
-        "gradient-card": "var(--gradient-card)",
+        "gradient-primary": "var(--gradient-primary)",
+        "gradient-secondary": "var(--gradient-secondary)",
       },
       keyframes: {
         "accordion-down": {
