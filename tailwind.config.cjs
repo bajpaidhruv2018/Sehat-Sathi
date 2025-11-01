@@ -1,6 +1,10 @@
-import type { Config } from "tailwindcss";
+// tailwind.config.cjs
+// Note: We are using CommonJS syntax (module.exports) to ensure compatibility
+// with PostCSS, which is often easier to configure this way.
 
-export default {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // Use require() for plugins in CJS environment
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
@@ -105,5 +109,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  // Use the reliable CommonJS require() here
+  plugins: [
+    require("tailwindcss-animate")
+  ],
+};
