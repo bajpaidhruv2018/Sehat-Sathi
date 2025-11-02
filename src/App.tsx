@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import SOSButton from "./components/SOSButton";
+import WelcomePopup from "./components/WelcomePopup";
 import Home from "./pages/Home";
 import Education from "./pages/Education";
 import Healthcare from "./pages/Healthcare";
@@ -36,6 +37,7 @@ const App = () => (
             </Routes>
           </main>
           <SOSButton />
+          <WelcomePopup />
         </div>
       </BrowserRouter>
     </TooltipProvider>

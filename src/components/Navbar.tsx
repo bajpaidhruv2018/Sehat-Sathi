@@ -8,7 +8,7 @@ const navItems = [
   { name: "Health Education", path: "/education" },
   { name: "Find Healthcare", path: "/healthcare" },
   { name: "Digital Literacy", path: "/literacy" },
-  { name: "Health Myths", path: "/misconceptions" },
+  { name: "Health Myths", path: "/misconceptions", special: true },
   { name: "Emergency", path: "/emergency" },
 ];
 
@@ -32,9 +32,14 @@ const Navbar = () => {
               <Button
                 variant={location.pathname === item.path ? "default" : "ghost"}
                 size="sm"
-                className="font-medium"
+                className={`font-medium transition-all duration-300 ${
+                  item.special
+                    ? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg hover:scale-105 animate-pulse-slow border-2 border-transparent hover:border-primary/50"
+                    : ""
+                }`}
               >
                 {item.name}
+                {item.special && <span className="ml-1 text-xs">✨</span>}
               </Button>
             </Link>
           ))}
@@ -53,9 +58,14 @@ const Navbar = () => {
                 <Link key={item.path} to={item.path}>
                   <Button
                     variant={location.pathname === item.path ? "default" : "ghost"}
-                    className="w-full justify-start text-lg"
+                    className={`w-full justify-start text-lg transition-all duration-300 ${
+                      item.special
+                        ? "bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg border-2 border-transparent hover:border-primary/50"
+                        : ""
+                    }`}
                   >
                     {item.name}
+                    {item.special && <span className="ml-2">✨</span>}
                   </Button>
                 </Link>
               ))}
