@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Heart, BookOpen, MapPin, Users, Smartphone, Shield } from "lucide-react";
+import { Heart, BookOpen, MapPin, Users, Smartphone, Shield, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import heroImage from "@/assets/rural-healthcare.jpg";
@@ -183,6 +183,45 @@ const Home = () => {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Health Myths Shortcut */}
+      <section className="py-12 bg-accent">
+        <div className="container mx-auto px-4">
+          <Link to="/misconceptions" className="block max-w-4xl mx-auto">
+            <Card className="group border-2 border-primary/30 bg-gradient-to-br from-primary/10 via-secondary/10 to-background hover:border-primary hover:shadow-strong transition-all duration-500 overflow-hidden animate-pulse-slow cursor-pointer">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                  <div className="flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500">
+                    <XCircle className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                  </div>
+                  <div className="flex-1 text-center md:text-left space-y-3">
+                    <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors">
+                      Explore Health Myths
+                    </h3>
+                    <h4 className="font-heading text-xl md:text-2xl font-semibold text-muted-foreground">
+                      स्वास्थ्य से जुड़ी गलतफहमियाँ जानें
+                    </h4>
+                    <p className="text-base md:text-lg text-muted-foreground">
+                      Discover the truth about common health misconceptions. Tap interactive cards to learn facts that can save lives.
+                    </p>
+                    <p className="text-sm md:text-base text-muted-foreground">
+                      आम स्वास्थ्य गलतफहमियों की सच्चाई जानें। इंटरैक्टिव कार्ड्स को टैप करें और जानें वो तथ्य जो जीवन बचा सकते हैं।
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <Button 
+                      size="lg" 
+                      className="rounded-xl shadow-medium group-hover:shadow-strong group-hover:scale-105 transition-all duration-300"
+                    >
+                      Learn Now / अभी जानें →
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </section>
 

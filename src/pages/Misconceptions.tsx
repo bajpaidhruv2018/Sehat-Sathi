@@ -9,6 +9,9 @@ interface Misconception {
   mythHi: string;
   factEn: string;
   factHi: string;
+  tipEn: string;
+  tipHi: string;
+  videoUrl: string;
 }
 
 const misconceptions: Misconception[] = [
@@ -19,6 +22,9 @@ const misconceptions: Misconception[] = [
     mythHi: "टीके लगवाने से बीमारियाँ होती हैं।",
     factEn: "Vaccines protect you and your family from serious diseases.",
     factHi: "टीके आपको और आपके परिवार को गंभीर बीमारियों से बचाते हैं।",
+    tipEn: "Vaccines contain weakened or inactive parts of a disease that trigger your body's immune response. They are safe and prevent serious illnesses like polio, measles, and tetanus.",
+    tipHi: "टीकों में रोग के कमजोर या निष्क्रिय भाग होते हैं जो शरीर की प्रतिरक्षा प्रणाली को सक्रिय करते हैं। ये सुरक्षित हैं और पोलियो, खसरा और टिटनेस जैसी गंभीर बीमारियों से बचाते हैं।",
+    videoUrl: "https://www.youtube.com/watch?v=zBkVCpbNnkU",
   },
   {
     id: 2,
@@ -27,6 +33,9 @@ const misconceptions: Misconception[] = [
     mythHi: "गर्भवती महिलाओं को कम खाना चाहिए।",
     factEn: "They should eat nutritious food for their health and baby's growth.",
     factHi: "उन्हें पौष्टिक भोजन करना चाहिए ताकि माँ और बच्चे दोनों स्वस्थ रहें।",
+    tipEn: "Pregnant women need extra nutrients including iron, folic acid, and calcium. Eating balanced meals helps ensure a healthy pregnancy and baby development.",
+    tipHi: "गर्भवती महिलाओं को आयरन, फोलिक एसिड और कैल्शियम जैसे अतिरिक्त पोषक तत्वों की आवश्यकता होती है। संतुलित भोजन स्वस्थ गर्भावस्था और बच्चे के विकास को सुनिश्चित करता है।",
+    videoUrl: "https://www.youtube.com/watch?v=dNjdZu8DOz0",
   },
   {
     id: 3,
@@ -35,6 +44,9 @@ const misconceptions: Misconception[] = [
     mythHi: "उबला हुआ पानी नुकसानदायक होता है।",
     factEn: "Boiling kills germs and makes water safe to drink.",
     factHi: "उबालने से कीटाणु मर जाते हैं और पानी पीने योग्य बनता है।",
+    tipEn: "Boil water for at least 10-15 minutes to remove harmful bacteria, viruses, and parasites. This simple method prevents waterborne diseases like diarrhea and cholera.",
+    tipHi: "हानिकारक बैक्टीरिया, वायरस और परजीवियों को मारने के लिए पानी को कम से कम 10-15 मिनट तक उबालें। यह सरल तरीका दस्त और हैजा जैसी जल जनित बीमारियों को रोकता है।",
+    videoUrl: "https://www.youtube.com/watch?v=d6cckvSxNfA",
   },
   {
     id: 4,
@@ -43,6 +55,9 @@ const misconceptions: Misconception[] = [
     mythHi: "बुखार में ठंडा पानी नहीं लगाना चाहिए।",
     factEn: "Cold compress helps reduce fever safely.",
     factHi: "ठंडा पानी बुखार को कम करने में मदद करता है।",
+    tipEn: "Use a clean cloth soaked in room temperature or slightly cool water on the forehead. This helps bring down body temperature naturally. Avoid ice-cold water as it may cause shivering.",
+    tipHi: "माथे पर कमरे के तापमान या थोड़े ठंडे पानी में भीगे साफ कपड़े का उपयोग करें। यह शरीर के तापमान को स्वाभाविक रूप से कम करने में मदद करता है। बर्फ जैसा ठंडा पानी न लगाएं क्योंकि इससे कंपकंपी हो सकती है।",
+    videoUrl: "https://www.youtube.com/watch?v=vLkTZZ6w6eM",
   },
   {
     id: 5,
@@ -51,6 +66,9 @@ const misconceptions: Misconception[] = [
     mythHi: "सिर्फ शहर के अस्पताल ही अच्छा इलाज देते हैं।",
     factEn: "Government Primary Health Centres (PHCs) also give free, quality care.",
     factHi: "सरकारी प्राथमिक स्वास्थ्य केंद्र (PHC) भी मुफ्त और अच्छा इलाज देते हैं।",
+    tipEn: "PHCs provide free medicines, vaccinations, maternal care, and basic treatments. ASHA workers and ANMs are trained to help with common health issues. Visit your nearest PHC for checkups.",
+    tipHi: "PHC मुफ्त दवाएं, टीकाकरण, मातृ देखभाल और बुनियादी उपचार प्रदान करते हैं। आशा कार्यकर्ता और ANM सामान्य स्वास्थ्य समस्याओं में मदद के लिए प्रशिक्षित हैं। जांच के लिए अपने निकटतम PHC पर जाएं।",
+    videoUrl: "https://www.youtube.com/watch?v=YM8jR8VYjY0",
   },
 ];
 
@@ -60,12 +78,12 @@ const MythCard = ({ misconception }: { misconception: Misconception }) => {
 
   return (
     <div 
-      className="flip-card h-80 cursor-pointer perspective-1000"
+      className="flip-card h-96 cursor-pointer perspective-1000"
       onClick={() => setIsFlipped(!isFlipped)}
     >
-      <div className={`flip-card-inner relative h-full w-full transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+      <div className={`flip-card-inner relative h-full w-full transition-all duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180 scale-105' : 'scale-100'}`}>
         {/* Front - Myth */}
-        <Card className="flip-card-face flip-card-front absolute inset-0 flex flex-col items-center justify-center p-6 backface-hidden border-2 border-destructive bg-gradient-to-br from-destructive/10 to-background shadow-lg">
+        <Card className="flip-card-face flip-card-front absolute inset-0 flex flex-col items-center justify-center p-6 backface-hidden border-2 border-destructive bg-gradient-to-br from-destructive/10 to-background shadow-lg hover:shadow-xl transition-shadow">
           <div className="mb-4 rounded-full bg-destructive/20 p-4">
             <Icon className="h-12 w-12 text-destructive" />
           </div>
@@ -79,13 +97,13 @@ const MythCard = ({ misconception }: { misconception: Misconception }) => {
           <p className="text-center text-base text-muted-foreground">
             {misconception.mythHi}
           </p>
-          <p className="mt-4 text-sm text-muted-foreground italic">
-            (Tap to see the truth)
+          <p className="mt-4 text-sm text-muted-foreground italic animate-pulse">
+            👆 Tap to see the truth
           </p>
         </Card>
 
         {/* Back - Fact */}
-        <Card className="flip-card-face flip-card-back absolute inset-0 flex flex-col items-center justify-center p-6 backface-hidden rotate-y-180 border-2 border-secondary bg-gradient-to-br from-secondary/10 to-background shadow-lg">
+        <Card className="flip-card-face flip-card-back absolute inset-0 flex flex-col items-center justify-center p-6 backface-hidden rotate-y-180 border-2 border-secondary bg-gradient-to-br from-secondary/10 to-background shadow-lg hover:shadow-xl transition-shadow overflow-y-auto">
           <div className="mb-4 rounded-full bg-secondary/20 p-4">
             <Icon className="h-12 w-12 text-secondary" />
           </div>
@@ -96,12 +114,26 @@ const MythCard = ({ misconception }: { misconception: Misconception }) => {
           <p className="mb-2 text-center text-lg font-semibold text-foreground">
             {misconception.factEn}
           </p>
-          <p className="text-center text-base text-muted-foreground">
+          <p className="mb-4 text-center text-base text-muted-foreground">
             {misconception.factHi}
           </p>
-          <p className="mt-4 text-sm text-muted-foreground italic">
-            (Tap to go back)
-          </p>
+          <div className="mt-2 rounded-lg bg-accent/50 p-3 border border-accent">
+            <p className="mb-1 text-sm font-medium text-accent-foreground">
+              📘 {misconception.tipEn}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              {misconception.tipHi}
+            </p>
+          </div>
+          <a
+            href={misconception.videoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary-light transition-colors shadow-soft"
+          >
+            ▶️ Learn More / और जानें
+          </a>
         </Card>
       </div>
     </div>
@@ -110,20 +142,20 @@ const MythCard = ({ misconception }: { misconception: Misconception }) => {
 
 const Misconceptions = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-accent/5 to-background">
+    <div className="min-h-screen bg-gradient-to-b from-background via-accent/5 to-background animate-fade-in">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
+      <section className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16 animate-slide-in-right">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading mb-4 text-4xl font-bold text-foreground md:text-5xl">
+          <h1 className="font-heading mb-4 text-4xl font-bold text-foreground md:text-5xl animate-scale-in">
             Common Health Misconceptions
           </h1>
-          <h2 className="font-heading mb-6 text-3xl font-semibold text-muted-foreground md:text-4xl">
+          <h2 className="font-heading mb-6 text-3xl font-semibold text-muted-foreground md:text-4xl animate-scale-in" style={{ animationDelay: '100ms' }}>
             स्वास्थ्य से जुड़ी आम गलतफहमियाँ
           </h2>
-          <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
+          <p className="mx-auto max-w-3xl text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: '200ms' }}>
             Learn the truth about common health myths in rural India. Tap each card to flip and discover the facts.
           </p>
-          <p className="mx-auto mt-2 max-w-3xl text-base text-muted-foreground">
+          <p className="mx-auto mt-2 max-w-3xl text-base text-muted-foreground animate-fade-in" style={{ animationDelay: '300ms' }}>
             ग्रामीण भारत में स्वास्थ्य से जुड़ी आम गलतफहमियों की सच्चाई जानें। हर कार्ड को टैप करें और सच्चाई खोजें।
           </p>
         </div>
