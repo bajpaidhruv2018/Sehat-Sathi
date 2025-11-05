@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Heart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -43,15 +44,18 @@ const Navbar = () => {
               </Button>
             </Link>
           ))}
+          <ThemeToggle />
         </div>
 
         {/* Mobile Navigation */}
-        <Sheet>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
           <SheetContent>
             <div className="mt-8 flex flex-col gap-4">
               {navItems.map((item) => (
@@ -71,7 +75,8 @@ const Navbar = () => {
               ))}
             </div>
           </SheetContent>
-        </Sheet>
+          </Sheet>
+        </div>
       </div>
     </nav>
   );
