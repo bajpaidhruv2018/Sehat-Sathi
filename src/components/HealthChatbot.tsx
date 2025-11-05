@@ -1,22 +1,24 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, Send, Sparkles } from 'lucide-react';
+import { X, Send, Sparkles, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
 
 interface Message {
-  id: string;
-  text: string;
   sender: 'user' | 'assistant';
+  text: string;
   timestamp: Date;
   mythStatus?: 'TRUE' | 'FALSE';
+  english?: string;
+  hindi?: string;
 }
 
 const HealthChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState('');
+  const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -28,224 +30,208 @@ const HealthChatbot = () => {
     scrollToBottom();
   }, [messages]);
 
-  const parseResponse = (text: string): { status: 'TRUE' | 'FALSE' | null; formatted: string } => {
-    const statusMatch = text.match(/Status:\s*(TRUE|FALSE)/i);
-    const status = statusMatch ? (statusMatch[1].toUpperCase() as 'TRUE' | 'FALSE') : null;
-    return { status, formatted: text };
+  const parseResponse = (text: string): { status?: 'TRUE' | 'FALSE'; english?: string; hindi?: string } => {
+    const statusMatch = text.match(/Status:\s*(.*?)(?:\n|$)/i);
+    const englishMatch = text.match(/English:\s*(.*?)(?=\nHindi:|$)/si);
+    const hindiMatch = text.match(/Hindi:\s*(.*?)$/si);
+
+    return {
+      status: statusMatch?.[1].includes('True') ? 'TRUE' : statusMatch?.[1].includes('False') ? 'FALSE' : undefined,
+      english: englishMatch?.[1].trim(),
+      hindi: hindiMatch?.[1].trim(),
+    };
   };
 
-  const handleSendMessage = async () => {
-    if (!inputValue.trim() || isTyping) return;
-
-    const userMessage: Message = {
-      id: Date.now().toString(),
-      text: inputValue,
-      sender: 'user',
-      timestamp: new Date(),
-    };
-
-    setMessages((prev) => [...prev, userMessage]);
-    setInputValue('');
-    setIsTyping(true);
-
+  const speakText = async (text: string) => {
+    if (isSpeaking) return;
+    
+    setIsSpeaking(true);
     try {
-      const { data, error } = await supabase.functions.invoke('health-chat', {
-        body: { message: inputValue },
+      const { data, error } = await supabase.functions.invoke('text-to-speech', {
+        body: { text },
       });
 
       if (error) throw error;
 
-      const { status, formatted } = parseResponse(data.reply);
-
-      const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: formatted,
-        sender: 'assistant',
-        timestamp: new Date(),
-        mythStatus: status || undefined,
-      };
-
-      setMessages((prev) => [...prev, assistantMessage]);
+      const audio = new Audio(`data:audio/mp3;base64,${data.audioContent}`);
+      audio.onended = () => setIsSpeaking(false);
+      await audio.play();
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error('Error with TTS:', error);
+      setIsSpeaking(false);
+      toast({
+        title: "Error",
+        description: "Failed to play audio",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleSendMessage = async () => {
+    if (!input.trim()) return;
+
+    const userMsg: Message = { sender: 'user', text: input, timestamp: new Date() };
+    setMessages(prev => [...prev, userMsg]);
+    setInput('');
+    setIsTyping(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('health-chat', {
+        body: { message: input },
+      });
+
+      if (error) throw error;
+
+      const reply = data.reply || 'Sorry, I could not process that.';
+      const parsed = parseResponse(reply);
+
+      setMessages(prev => [...prev, { 
+        sender: 'assistant', 
+        text: reply, 
+        timestamp: new Date(),
+        mythStatus: parsed.status,
+        english: parsed.english,
+        hindi: parsed.hindi,
+      }]);
+    } catch (error) {
+      console.error('Error:', error);
       toast({
         title: 'Error',
-        description: 'Failed to send message. Please try again.',
+        description: 'Failed to send message',
         variant: 'destructive',
       });
-      
-      const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: 'Sorry, I encountered an error. Please try again later.',
-        sender: 'assistant',
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setIsTyping(false);
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSendMessage();
-    }
-  };
+  if (!isOpen) {
+    return (
+      <button
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-6 right-6 z-50 h-16 w-16 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center"
+      >
+        <Sparkles className="h-6 w-6" />
+      </button>
+    );
+  }
 
   return (
-    <>
-      {/* Floating Chat Button with Pulsing Glow */}
-      <div className="fixed bottom-24 right-6 z-50">
-        {!isOpen && (
-          <button
-            onClick={() => setIsOpen(true)}
-            className="h-16 w-16 rounded-full bg-gradient-to-r from-primary to-primary-light shadow-elegant hover:shadow-glow hover:scale-110 transition-all duration-300 flex items-center justify-center animate-pulse"
-            style={{
-              boxShadow: '0 0 30px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--primary) / 0.4)',
-              animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
-            }}
-            aria-label="Open health myth checker"
-          >
-            <Sparkles className="h-8 w-8 text-primary-foreground" />
-          </button>
-        )}
+    <div className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-card rounded-2xl shadow-2xl border border-border flex flex-col animate-fade-in">
+      <div className="flex items-center justify-between p-4 border-b border-border bg-gradient-to-r from-primary/10 to-secondary/10 rounded-t-2xl">
+        <div className="flex items-center gap-2">
+          <Sparkles className="h-5 w-5 text-primary" />
+          <h3 className="font-semibold text-foreground">Health Myth Checker</h3>
+        </div>
+        <button
+          onClick={() => setIsOpen(false)}
+          className="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <X className="h-5 w-5" />
+        </button>
       </div>
 
-      {/* Chat Window with Entrance Animation */}
-      {isOpen && (
-        <div className="fixed bottom-24 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] animate-scale-in">
-          <div 
-            className="bg-background border-2 border-primary/20 rounded-2xl overflow-hidden flex flex-col h-[600px] max-h-[calc(100vh-3rem)]"
-            style={{
-              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.2), 0 0 30px hsl(var(--primary) / 0.3)'
-            }}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        {messages.length === 0 && (
+          <div className="text-center text-muted-foreground py-8">
+            <p className="text-sm">Ask me to verify any health myth!</p>
+            <p className="text-xs mt-2">I'll respond in English and Hindi</p>
+          </div>
+        )}
+        
+        {messages.map((msg, idx) => (
+          <div
+            key={idx}
+            className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-primary to-primary-light text-primary-foreground p-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Sparkles className="h-6 w-6 animate-pulse" />
-                <div>
-                  <h3 className="font-semibold text-lg">Health Myth Checker</h3>
-                  <p className="text-sm opacity-90">💬 Bust Your Health Myths Now!</p>
-                </div>
-              </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(false)}
-                className="text-primary-foreground hover:bg-white/20"
-              >
-                <X className="h-5 w-5" />
-              </Button>
-            </div>
-
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-muted/30">
-              {messages.length === 0 && (
-                <div className="text-center text-muted-foreground py-12 animate-fade-in">
-                  <Sparkles className="w-16 h-16 mx-auto mb-4 opacity-50" />
-                  <p className="text-base font-medium">Ask me about any health myth!</p>
-                  <p className="text-sm mt-2">मुझसे कोई भी स्वास्थ्य मिथक पूछें!</p>
-                </div>
-              )}
+            <div
+              className={`max-w-[85%] rounded-2xl px-4 py-2 ${
+                msg.sender === 'user'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-muted text-foreground'
+              }`}
+            >
+              <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
               
-              {messages.map((message) => (
-                <div
-                  key={message.id}
-                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
-                >
-                  <div
-                    className={`max-w-[85%] rounded-2xl px-4 py-3 transition-all duration-500 ${
-                      message.sender === 'user'
-                        ? 'bg-primary text-primary-foreground rounded-br-sm shadow-soft'
-                        : message.mythStatus === 'TRUE'
-                        ? 'bg-gradient-to-br from-green-100 via-green-50 to-emerald-100 dark:from-green-950 dark:via-green-900 dark:to-emerald-950 text-foreground shadow-lg border-2 border-green-400 dark:border-green-600 rounded-bl-sm'
-                        : message.mythStatus === 'FALSE'
-                        ? 'bg-gradient-to-br from-red-100 via-red-50 to-rose-100 dark:from-red-950 dark:via-red-900 dark:to-rose-950 text-foreground shadow-lg border-2 border-red-400 dark:border-red-600 rounded-bl-sm'
-                        : 'bg-background border-2 border-primary/20 rounded-bl-sm'
-                    }`}
+              {msg.sender === 'assistant' && (
+                <>
+                  {msg.mythStatus && (
+                    <div className={`mt-2 p-3 rounded-lg text-sm font-semibold ${
+                      msg.mythStatus === 'TRUE' 
+                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100' 
+                        : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
+                    }`}>
+                      {msg.mythStatus === 'TRUE' ? '✅ Myth is True' : '❌ Myth is False'}
+                    </div>
+                  )}
+                  
+                  {(msg.english || msg.hindi) && (
+                    <div className="mt-3 space-y-2">
+                      {msg.english && (
+                        <div className="p-2 bg-primary/5 rounded border-l-2 border-primary">
+                          <p className="text-xs font-semibold text-primary mb-1">English:</p>
+                          <p className="text-sm">{msg.english}</p>
+                        </div>
+                      )}
+                      {msg.hindi && (
+                        <div className="p-2 bg-secondary/5 rounded border-l-2 border-secondary">
+                          <p className="text-xs font-semibold text-secondary mb-1">हिंदी:</p>
+                          <p className="text-sm">{msg.hindi}</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  <button
+                    onClick={() => speakText(msg.text)}
+                    disabled={isSpeaking}
+                    className="mt-2 text-xs text-primary hover:text-primary/80 disabled:opacity-50 flex items-center gap-1"
                   >
-                    {message.sender === 'assistant' && message.mythStatus && (
-                      <div className="mb-3 pb-3 border-b-2 border-current/20">
-                        <h4 className={`font-bold text-xl flex items-center gap-2 ${
-                          message.mythStatus === 'TRUE' 
-                            ? 'text-green-700 dark:text-green-300' 
-                            : 'text-red-700 dark:text-red-300'
-                        }`}>
-                          {message.mythStatus === 'TRUE' ? '✅ Myth is True' : '❌ Myth is False'}
-                        </h4>
-                      </div>
-                    )}
-                    <div className="text-sm space-y-3">
-                      {message.text.split('\n').map((line, i) => {
-                        if (line.startsWith('Status:')) return null;
-                        if (line.startsWith('English:')) {
-                          return (
-                            <div key={i}>
-                              <p className="font-semibold text-xs text-muted-foreground mb-1">English:</p>
-                              <p className="font-medium leading-relaxed">{line.replace('English:', '').trim()}</p>
-                            </div>
-                          );
-                        }
-                        if (line.startsWith('Hindi:')) {
-                          return (
-                            <div key={i}>
-                              <p className="font-semibold text-xs text-muted-foreground mb-1">हिंदी:</p>
-                              <p className="leading-relaxed opacity-90">{line.replace('Hindi:', '').trim()}</p>
-                            </div>
-                          );
-                        }
-                        return line.trim() && <p key={i} className="leading-relaxed">{line}</p>;
-                      })}
-                    </div>
-                  </div>
-                </div>
-              ))}
-              
-              {isTyping && (
-                <div className="flex justify-start animate-fade-in">
-                  <div className="bg-background border-2 border-primary/20 rounded-2xl rounded-bl-sm px-4 py-3">
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                      <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                    </div>
-                  </div>
-                </div>
+                    <Volume2 className="h-3 w-3" />
+                    {isSpeaking ? 'Speaking...' : 'Read Aloud'}
+                  </button>
+                </>
               )}
-              
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Input */}
-            <div className="p-4 bg-background border-t-2 border-primary/20">
-              <div className="flex gap-2 mb-2">
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                  placeholder="Enter a health myth to verify..."
-                  className="flex-1 px-4 py-3 rounded-xl border-2 border-primary/20 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 bg-background text-foreground transition-all"
-                  disabled={isTyping}
-                />
-                <Button
-                  onClick={handleSendMessage}
-                  disabled={!inputValue.trim() || isTyping}
-                  className="bg-primary hover:bg-primary-light rounded-xl px-6"
-                >
-                  <Send className="h-5 w-5" />
-                </Button>
-              </div>
-              <p className="text-xs text-muted-foreground text-center">
-                Ask in English or Hindi • English या Hindi में पूछें
-              </p>
             </div>
           </div>
+        ))}
+        
+        {isTyping && (
+          <div className="flex justify-start">
+            <div className="bg-muted rounded-2xl px-4 py-2">
+              <div className="flex gap-1">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse delay-150"></div>
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse delay-300"></div>
+              </div>
+            </div>
+          </div>
+        )}
+        <div ref={messagesEndRef} />
+      </div>
+
+      <div className="p-4 border-t border-border">
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+            placeholder="Ask about a health myth..."
+            className="flex-1 px-4 py-2 bg-background border border-border rounded-full focus:outline-none focus:ring-2 focus:ring-primary text-sm"
+            disabled={isTyping}
+          />
+          <Button
+            onClick={handleSendMessage}
+            disabled={isTyping || !input.trim()}
+            size="icon"
+            className="rounded-full shrink-0"
+          >
+            <Send className="h-4 w-4" />
+          </Button>
         </div>
-      )}
-    </>
+      </div>
+    </div>
   );
 };
 

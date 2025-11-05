@@ -3,6 +3,8 @@ import { Heart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageToggle, Language } from "@/components/LanguageToggle";
+import { useState } from "react";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -11,10 +13,14 @@ const navItems = [
   { name: "Digital Literacy", path: "/literacy" },
   { name: "Health Myths", path: "/misconceptions", special: true },
   { name: "Emergency", path: "/emergency" },
+  { name: "Dashboard", path: "/dashboard" },
+  { name: "Ask Doctor", path: "/ask-doctor" },
+  { name: "Find Centers", path: "/locator" },
 ];
 
 const Navbar = () => {
   const location = useLocation();
+  const [language, setLanguage] = useState<Language>('en');
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
@@ -44,11 +50,13 @@ const Navbar = () => {
               </Button>
             </Link>
           ))}
+          <LanguageToggle onLanguageChange={setLanguage} />
           <ThemeToggle />
         </div>
 
         {/* Mobile Navigation */}
         <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle onLanguageChange={setLanguage} />
           <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>

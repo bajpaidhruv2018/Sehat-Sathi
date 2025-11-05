@@ -14,7 +14,126 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      badges: {
+        Row: {
+          badge_icon: string
+          badge_name: string
+          badge_type: Database["public"]["Enums"]["badge_type"]
+          earned_at: string
+          id: string
+          milestone_value: number
+          user_id: string
+        }
+        Insert: {
+          badge_icon: string
+          badge_name: string
+          badge_type: Database["public"]["Enums"]["badge_type"]
+          earned_at?: string
+          id?: string
+          milestone_value: number
+          user_id: string
+        }
+        Update: {
+          badge_icon?: string
+          badge_name?: string
+          badge_type?: Database["public"]["Enums"]["badge_type"]
+          earned_at?: string
+          id?: string
+          milestone_value?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      doctor_questions: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          name: string
+          question: string
+          responded_at: string | null
+          response: string | null
+          status: string | null
+          user_id: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          name: string
+          question: string
+          responded_at?: string | null
+          response?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          name?: string
+          question?: string
+          responded_at?: string | null
+          response?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      health_tips: {
+        Row: {
+          category: string
+          created_at: string
+          id: string
+          priority: number | null
+          tip_english: string
+          tip_hindi: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          id?: string
+          priority?: number | null
+          tip_english: string
+          tip_hindi: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          id?: string
+          priority?: number | null
+          tip_english?: string
+          tip_hindi?: string
+        }
+        Relationships: []
+      }
+      user_progress: {
+        Row: {
+          completed_at: string
+          id: string
+          module_category: string
+          module_name: string
+          progress_percentage: number | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string
+          id?: string
+          module_category: string
+          module_name: string
+          progress_percentage?: number | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string
+          id?: string
+          module_category?: string
+          module_name?: string
+          progress_percentage?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +142,12 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      badge_type:
+        | "myth_buster"
+        | "health_hero"
+        | "literacy_champion"
+        | "explorer"
+        | "guardian"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +274,14 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      badge_type: [
+        "myth_buster",
+        "health_hero",
+        "literacy_champion",
+        "explorer",
+        "guardian",
+      ],
+    },
   },
 } as const

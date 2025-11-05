@@ -14,11 +14,20 @@ import Healthcare from "./pages/Healthcare";
 import Literacy from "./pages/Literacy";
 import Emergency from "./pages/Emergency";
 import Misconceptions from "./pages/Misconceptions";
+import Dashboard from "./pages/Dashboard";
+import AskDoctor from "./pages/AskDoctor";
+import HealthLocator from "./pages/HealthLocator";
 import NotFound from "./pages/NotFound";
+import HealthTipsBanner from "./components/HealthTipsBanner";
+import { useState } from "react";
+import { Language } from "./components/LanguageToggle";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  const [language, setLanguage] = useState<Language>('en');
+
+  return (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <TooltipProvider>
@@ -27,6 +36,7 @@ const App = () => (
         <BrowserRouter>
           <div className="flex min-h-screen flex-col">
             <Navbar />
+            <HealthTipsBanner language={language} />
             <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -35,6 +45,9 @@ const App = () => (
                 <Route path="/literacy" element={<Literacy />} />
                 <Route path="/emergency" element={<Emergency />} />
                 <Route path="/misconceptions" element={<Misconceptions />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/ask-doctor" element={<AskDoctor />} />
+                <Route path="/locator" element={<HealthLocator />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
@@ -47,6 +60,7 @@ const App = () => (
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;
