@@ -1,0 +1,83 @@
+{
+  "nav": {
+    "home": "Home",
+    "education": "Health Education",
+    "healthcare": "Healthcare Access",
+    "emergency": "Emergency Aid",
+    "literacy": "Literacy Support",
+    "locator": "Find Hospitals",
+    "misconceptions": "Myths vs Facts",
+    "askDoctor": "Ask a Doctor",
+    "dashboard": "My Progress"
+  },
+  "home": {
+    "hero": {
+      "title": "Empowering Rural India with Digital Healthcare",
+      "subtitle": "Breaking barriers to healthcare access in underserved communities",
+      "cta": "Get Started"
+    },
+    "features": {
+      "title": "What You Can Do Here",
+      "health": {
+        "title": "Health Education",
+        "description": "Learn about common health issues in your language"
+      },
+      "access": {
+        "title": "Healthcare Access",
+        "description": "Find nearby clinics and telemedicine options"
+      },
+      "emergency": {
+        "title": "Emergency Aid",
+        "description": "Quick guides for medical emergencies"
+      },
+      "literacy": {
+        "title": "Literacy Support",
+        "description": "Voice-based interaction for all literacy levels"
+      }
+    }
+  },
+  "sos": {
+    "button": "SOS Emergency",
+    "calling": "Calling Emergency Services..."
+  },
+  "chatbot": {
+    "title": "Health Assistant",
+    "placeholder": "Ask me anything about health...",
+    "send": "Send",
+    "listening": "Listening...",
+    "speaking": "Speaking..."
+  },
+  "locator": {
+    "title": "Find Hospitals Near Me",
+    "refresh": "Refresh My Location",
+    "loading": "Loading nearby hospitals...",
+    "error": "Unable to fetch hospitals",
+    "call": "Call",
+    "distance": "km away",
+    "open": "Open Now",
+    "closed": "Closed",
+    "rating": "Rating",
+    "allowLocation": "Please allow location access to find nearby hospitals",
+    "nearbyList": "Nearby Hospitals"
+  },
+  "tts": {
+    "readAloud": "Read Aloud",
+    "stop": "Stop"
+  },
+  "education": {
+    "title": "Health Education",
+    "subtitle": "Learn about common health topics"
+  },
+  "dashboard": {
+    "title": "My Progress",
+    "subtitle": "Track your health journey"
+  },
+  "askDoctor": {
+    "title": "Ask a Doctor",
+    "subtitle": "Get medical advice",
+    "placeholder": "Describe your symptoms..."
+  },
+  "tips": {
+    "healthTip": "Health Tip"
+  }
+}

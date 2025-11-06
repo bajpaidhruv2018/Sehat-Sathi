@@ -1,21 +1,13 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Languages } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-export type Language = 'en' | 'hi';
-
-interface LanguageToggleProps {
-  onLanguageChange?: (lang: Language) => void;
-}
-
-export const LanguageToggle = ({ onLanguageChange }: LanguageToggleProps) => {
-  const [language, setLanguage] = useState<Language>('en');
+export const LanguageToggle = () => {
+  const { language, setLanguage } = useLanguage();
 
   const toggleLanguage = () => {
-    const newLang: Language = language === 'en' ? 'hi' : 'en';
+    const newLang = language === 'en' ? 'hi' : 'en';
     setLanguage(newLang);
-    localStorage.setItem('language', newLang);
-    onLanguageChange?.(newLang);
   };
 
   return (
@@ -23,10 +15,11 @@ export const LanguageToggle = ({ onLanguageChange }: LanguageToggleProps) => {
       variant="ghost"
       size="sm"
       onClick={toggleLanguage}
-      className="relative transition-all duration-200"
+      className="relative transition-all duration-300 hover:scale-105"
       aria-label={`Switch to ${language === 'en' ? 'Hindi' : 'English'}`}
     >
-      <Languages className="h-5 w-5 mr-2" />
+      <span className="text-xl mr-2">{language === 'en' ? '🇬🇧' : '🇮🇳'}</span>
+      <Languages className="h-4 w-4 mr-1" />
       <span className="font-medium">{language === 'en' ? 'EN' : 'हिं'}</span>
     </Button>
   );

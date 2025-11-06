@@ -19,6 +19,9 @@ serve(async (req) => {
 
     const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
 
+    // Select voice based on language
+    const voice = language === 'hi' ? 'nova' : 'alloy';
+
     // Use Lovable AI for TTS via OpenAI-compatible endpoint
     const response = await fetch('https://ai.gateway.lovable.dev/v1/audio/speech', {
       method: 'POST',
@@ -29,7 +32,7 @@ serve(async (req) => {
       body: JSON.stringify({
         model: 'tts-1',
         input: text,
-        voice: 'alloy',
+        voice: voice,
       }),
     });
 

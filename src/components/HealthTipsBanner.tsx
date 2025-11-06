@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/components/ui/use-toast";
-import { Language } from "./LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { TTSButton } from "./TTSButton";
 
 interface HealthTip {
   id: string;
@@ -10,14 +11,13 @@ interface HealthTip {
   category: string;
 }
 
-interface HealthTipsBannerProps {
-  language: Language;
-}
+interface HealthTipsBannerProps {}
 
-const HealthTipsBanner = ({ language }: HealthTipsBannerProps) => {
+const HealthTipsBanner = ({}: HealthTipsBannerProps) => {
   const [tips, setTips] = useState<HealthTip[]>([]);
   const [currentTipIndex, setCurrentTipIndex] = useState(0);
   const { toast } = useToast();
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     fetchTips();
@@ -64,6 +64,7 @@ const HealthTipsBanner = ({ language }: HealthTipsBannerProps) => {
           <p className="text-sm md:text-base font-medium text-foreground text-center">
             {displayText}
           </p>
+          <TTSButton text={displayText} />
         </div>
       </div>
     </div>

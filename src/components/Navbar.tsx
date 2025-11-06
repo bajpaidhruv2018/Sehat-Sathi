@@ -3,24 +3,24 @@ import { Heart, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { LanguageToggle, Language } from "@/components/LanguageToggle";
-import { useState } from "react";
-
-const navItems = [
-  { name: "Home", path: "/" },
-  { name: "Health Education", path: "/education" },
-  { name: "Find Healthcare", path: "/healthcare" },
-  { name: "Digital Literacy", path: "/literacy" },
-  { name: "Health Myths", path: "/misconceptions", special: true },
-  { name: "Emergency", path: "/emergency" },
-  { name: "Dashboard", path: "/dashboard" },
-  { name: "Ask Doctor", path: "/ask-doctor" },
-  { name: "Find Centers", path: "/locator" },
-];
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const location = useLocation();
-  const [language, setLanguage] = useState<Language>('en');
+  const { t } = useLanguage();
+
+  const navItems = [
+    { name: t('nav.home'), path: "/" },
+    { name: t('nav.education'), path: "/education" },
+    { name: t('nav.healthcare'), path: "/healthcare" },
+    { name: t('nav.literacy'), path: "/literacy" },
+    { name: t('nav.misconceptions'), path: "/misconceptions", special: true },
+    { name: t('nav.emergency'), path: "/emergency" },
+    { name: t('nav.dashboard'), path: "/dashboard" },
+    { name: t('nav.askDoctor'), path: "/ask-doctor" },
+    { name: t('nav.locator'), path: "/locator" },
+  ];
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
@@ -50,13 +50,13 @@ const Navbar = () => {
               </Button>
             </Link>
           ))}
-          <LanguageToggle onLanguageChange={setLanguage} />
+          <LanguageToggle />
           <ThemeToggle />
         </div>
 
         {/* Mobile Navigation */}
         <div className="flex items-center gap-2 md:hidden">
-          <LanguageToggle onLanguageChange={setLanguage} />
+          <LanguageToggle />
           <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>
