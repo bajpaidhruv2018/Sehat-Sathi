@@ -1,35 +1,42 @@
-# Implementation Plan - i18n Scalability
+# Implementation Plan - i18n Scalability & Pan-India Expansion
 
 ## Goal Description
-Scale the current i18n implementation to support multiple vernacular languages (starting with Marathi 'mr'), optimize for performance (lazy loading), and improve the UI scalability for language switching.
+Scale the i18n implementation to support 5 additional major Indian languages (Bengali, Telugu, Tamil, Odia, Punjabi), utilizing correct native scripts and ensuring UI robustness for variable text lengths.
 
 ## Proposed Changes
 
 ### Infrastructure
 #### [MODIFY] [i18n.ts](file:///c:/College/hackathons/SehatSaathi/remote-well-reach/src/i18n.ts)
-- Update `supportedLngs` to include `mr`.
-- Verify `backend` configuration ensures no cache-busting timestamp is appended unnecessarily (allow browser caching).
+- Add `bn`, `te`, `ta`, `or`, `pa` to `supportedLngs`.
 
-### Components
 #### [MODIFY] [LanguageSwitcher.tsx](file:///c:/College/hackathons/SehatSaathi/remote-well-reach/src/components/LanguageSwitcher.tsx)
-- Replace button toggle with a `Select` (Dropdown) component.
-- Apply custom styling (clean, greenish palette).
+- Add new languages to the `languages` array with native labels:
+    - Bengali: বাংলা
+    - Telugu: తెలుగు
+    - Tamil: தமிழ்
+    - Odia: ଓଡ଼ିଆ
+    - Punjabi: ਪੰਜਾਬੀ
 
 ### Translations
-#### [NEW] [public/locales/mr/translation.json](file:///c:/College/hackathons/SehatSaathi/remote-well-reach/public/locales/mr/translation.json)
-- Create new translation file for Marathi.
-- Populate with high-quality translations corresponding to `en/translation.json`.
+#### [NEW] Translation Files
+- `public/locales/bn/translation.json`
+- `public/locales/te/translation.json`
+- `public/locales/ta/translation.json`
+- `public/locales/or/translation.json`
+- `public/locales/pa/translation.json`
+- **Quality**: Empathetic, layman-friendly healthcare terminology.
 
 ### UI Hardening
-- specific components to be identified during audit (e.g., `Home.tsx`, `Dashboard.tsx` cards) will have `flex-wrap` or dynamic sizing classes added.
+#### [MODIFY] [Home.tsx](file:///c:/College/hackathons/SehatSaathi/remote-well-reach/src/pages/Home.tsx)
+- Myth Cards: Ensure `min-height` or flexible layouts to handle text expansion (especially for South Indian scripts).
+
+#### [MODIFY] [Education.tsx](file:///c:/College/hackathons/SehatSaathi/remote-well-reach/src/pages/Education.tsx)
+- Topic Cards: Check for title/description overflow.
 
 ## Verification Plan
-### Automated Tests
-- `npm run build` to ensure no regression.
-- Manual verification of Network tab in DevTools:
-    - Load page -> check `en.json` loaded.
-    - Switch to Marathi -> check `mr.json` loaded (lazy load).
-    - Reload -> Check if cached (304 Not Modified or disk cache).
-### Manual Verification
-- Visual inspection of Marathi text layout.
-- Test dropdown functionality.
+- **Automated**: Verify `i18n` initializes with new languages.
+- **Manual**:
+    - Switch to each new language.
+    - Inspect "Myth" cards for layout breakage.
+    - Inspect "Education" cards for layout breakage.
+    - Verify Native Script rendering in the dropdown.

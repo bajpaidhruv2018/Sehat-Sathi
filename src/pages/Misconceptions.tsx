@@ -164,22 +164,20 @@ const MythCard = ({ misconception }: { misconception: any }) => {
 };
 
 const Misconceptions = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-gradient-to-b from-background via-accent/5 to-background animate-fade-in">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary/10 to-secondary/10 py-16 animate-slide-in-right">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading mb-4 text-4xl font-bold text-foreground md:text-5xl animate-scale-in">
-            Common Health Misconceptions
+            {t('misconceptions.title')}
           </h1>
-          <h2 className="font-heading mb-6 text-3xl font-semibold text-muted-foreground md:text-4xl animate-scale-in" style={{ animationDelay: '100ms' }}>
-            स्वास्थ्य से जुड़ी आम गलतफहमियाँ
+          <h2 className="font-heading mb-6 text-xl font-semibold text-muted-foreground md:text-2xl animate-scale-in" style={{ animationDelay: '100ms' }}>
+            {t('misconceptions.subtitle')}
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-muted-foreground animate-fade-in" style={{ animationDelay: '200ms' }}>
-            Learn the truth about common health myths in rural India. Tap each card to flip and discover the facts.
-          </p>
-          <p className="mx-auto mt-2 max-w-3xl text-base text-muted-foreground animate-fade-in" style={{ animationDelay: '300ms' }}>
-            ग्रामीण भारत में स्वास्थ्य से जुड़ी आम गलतफहमियों की सच्चाई जानें। हर कार्ड को टैप करें और सच्चाई खोजें।
+            {t('misconceptions.description')}
           </p>
         </div>
       </section>
@@ -194,13 +192,10 @@ const Misconceptions = () => {
               </div>
               <div>
                 <h3 className="font-heading mb-2 text-xl font-bold text-primary">
-                  Did You Know? / क्या आप जानते हैं?
+                  {t('misconceptions.didYouKnow.title')}
                 </h3>
                 <p className="text-foreground">
-                  <strong>Most health problems in rural areas can be prevented with simple knowledge and basic healthcare practices.</strong>
-                </p>
-                <p className="mt-1 text-muted-foreground">
-                  ग्रामीण क्षेत्रों में अधिकांश स्वास्थ्य समस्याओं को सरल जानकारी और बुनियादी स्वास्थ्य प्रथाओं से रोका जा सकता है।
+                  <strong>{t('misconceptions.didYouKnow.text')}</strong>
                 </p>
               </div>
             </div>
@@ -231,16 +226,13 @@ const Misconceptions = () => {
           <Card className="mx-auto max-w-3xl border-2 border-secondary/30 bg-gradient-to-br from-secondary/10 to-background p-8 shadow-lg">
             <CheckCircle className="mx-auto mb-4 h-16 w-16 text-secondary" />
             <h3 className="font-heading mb-4 text-2xl font-bold text-foreground">
-              Stay Informed, Stay Healthy
+              {t('misconceptions.cta.title')}
             </h3>
             <h4 className="font-heading mb-4 text-xl font-semibold text-muted-foreground">
-              जानकार बनें, स्वस्थ रहें
+              {t('misconceptions.cta.subtitle')}
             </h4>
             <p className="mb-2 text-lg text-foreground">
-              Share these facts with your family and friends. Knowledge saves lives.
-            </p>
-            <p className="text-base text-muted-foreground">
-              इन तथ्यों को अपने परिवार और दोस्तों के साथ साझा करें। ज्ञान जीवन बचाता है।
+              {t('misconceptions.cta.text')}
             </p>
           </Card>
         </div>
