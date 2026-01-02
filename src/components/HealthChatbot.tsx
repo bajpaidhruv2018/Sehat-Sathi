@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { X, Send, Sparkles, Volume2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-// import { supabase } from '@/integrations/supabase/client'; // Commented out for mock mode
+import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/components/ui/use-toast';
 
 interface Message {
@@ -32,13 +32,13 @@ const HealthChatbot = () => {
 
   const parseResponse = (text: string): { status?: 'TRUE' | 'FALSE'; english?: string; hindi?: string } => {
     const cleanText = text.replace(/\*\*/g, '');
-    
+
     const statusMatch = cleanText.match(/(?:Status|Verdict):\s*(.*?)(?:\n|$)/i);
     const englishMatch = cleanText.match(/English:\s*([\s\S]*?)(?=\n\s*Hindi:|$)/i);
     const hindiMatch = cleanText.match(/Hindi:\s*([\s\S]*?)$/i);
 
     const statusText = statusMatch?.[1]?.toLowerCase() || '';
-    
+
     return {
       status: statusText.includes('true') ? 'TRUE' : statusText.includes('false') ? 'FALSE' : undefined,
       english: englishMatch?.[1]?.trim(),
@@ -48,9 +48,9 @@ const HealthChatbot = () => {
 
   const speakText = async (text: string) => {
     if (isSpeaking) return;
-    
+
     setIsSpeaking(true);
-    
+
     try {
       if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(text);
@@ -59,10 +59,10 @@ const HealthChatbot = () => {
         const isHindi = /[\u0900-\u097F]/.test(text);
         const voice = voices.find(v => v.lang.startsWith(isHindi ? 'hi' : 'en'));
         if (voice) utterance.voice = voice;
-        
+
         utterance.onend = () => setIsSpeaking(false);
         utterance.onerror = () => setIsSpeaking(false);
-        
+
         window.speechSynthesis.speak(utterance);
       } else {
         throw new Error("Speech synthesis not supported");
@@ -87,59 +87,41 @@ const HealthChatbot = () => {
     setIsTyping(true);
 
     try {
-      // --- SMART MOCK RESPONSE SIMULATION ---
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const { data, error } = await supabase.functions.invoke('health-chat', {
+        body: { message: userMsg.text }
+      });
 
-      const lowerInput = userMsg.text.toLowerCase();
-      let mockReply = "";
+      if (error) throw error;
 
-      // 1. Check for specific keywords to return realistic responses
-      if (lowerInput.includes("milk") && (lowerInput.includes("fish") || lowerInput.includes("non veg"))) {
-        mockReply = `Status: FALSE
-English: There is no scientific evidence that drinking milk after eating fish causes leukemia or skin spots (vitiligo). This is a common myth.
-Hindi: मछली खाने के बाद दूध पीने से ल्यूकेमिया या त्वचा के धब्बे (विटिलिगो) होने का कोई वैज्ञानिक प्रमाण नहीं है। यह एक आम मिथक है।`;
-      } 
-      else if (lowerInput.includes("vaccine") || lowerInput.includes("autism")) {
-        mockReply = `Status: FALSE
-English: Vaccines are safe and do not cause autism. This claim has been debunked by extensive medical research.
-Hindi: टीके सुरक्षित हैं और इनसे ऑटिज्म नहीं होता है। व्यापक चिकित्सा अनुसंधान द्वारा इस दावे का खंडन किया गया है।`;
-      }
-      else if (lowerInput.includes("water") || lowerInput.includes("drink")) {
-        mockReply = `Status: TRUE
-English: Staying hydrated is essential for health. Drinking 8 glasses of water a day is a good general guideline.
-Hindi: स्वस्थ रहने के लिए हाइड्रेटेड रहना जरूरी है। दिन में 8 गिलास पानी पीना एक अच्छा सामान्य नियम है।`;
-      }
-      else if (lowerInput.includes("pregnant") || lowerInput.includes("pregnancy")) {
-        mockReply = `Status: FALSE
-English: Pregnant women should not "eat for two" literally. They need only about 300 extra calories per day.
-Hindi: गर्भवती महिलाओं को वास्तव में "दो लोगों के लिए" नहीं खाना चाहिए। उन्हें प्रतिदिन केवल लगभग 300 अतिरिक्त कैलोरी की आवश्यकता होती है।`;
-      }
-      // 2. Default Fallback
-      else {
-        mockReply = `Status: FALSE
-English: (Simulation) I cannot verify this specific claim in offline mode. Please consult a doctor for accurate advice.
-Hindi: (सिमुलेशन) मैं ऑफ़लाइन मोड में इस दावे की पुष्टि नहीं कर सकता। सटीक सलाह के लिए कृपया डॉक्टर से सलाह लें।`;
-      }
+      const aiText = data.reply;
+      const parsed = parseResponse(aiText);
 
-      const parsed = parseResponse(mockReply);
-
-      setMessages(prev => [...prev, { 
-        sender: 'assistant', 
-        text: mockReply, 
+      setMessages(prev => [...prev, {
+        sender: 'assistant',
+        text: aiText,
         timestamp: new Date(),
         mythStatus: parsed.status,
         english: parsed.english,
         hindi: parsed.hindi,
       }]);
-      // --- END MOCK RESPONSE ---
 
     } catch (error) {
       console.error('Error:', error);
       toast({
         title: 'Error',
-        description: 'Failed to send message',
+        description: 'Failed to send message to the health expert.',
         variant: 'destructive',
       });
+
+      // Fallback message so user isn't left hanging
+      setMessages(prev => [...prev, {
+        sender: 'assistant',
+        text: "Status: FALSE\nEnglish: (Error) Could not connect to the server. Please check your internet.\nHindi: (त्रुटि) सर्वर से कनेक्ट नहीं हो सका। कृपया अपना इंटरनेट जांचें।",
+        timestamp: new Date(),
+        mythStatus: 'FALSE',
+        english: "Could not connect to the server. Please check your internet.",
+        hindi: "सर्वर से कनेक्ट नहीं हो सका। कृपया अपना इंटरनेट जांचें।",
+      }]);
     } finally {
       setIsTyping(false);
     }
@@ -178,36 +160,34 @@ Hindi: (सिमुलेशन) मैं ऑफ़लाइन मोड म�
             <p className="text-xs mt-2">I'll respond in English and Hindi</p>
           </div>
         )}
-        
+
         {messages.map((msg, idx) => (
           <div
             key={idx}
             className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
-              className={`max-w-[85%] rounded-2xl px-4 py-2 ${
-                msg.sender === 'user'
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-muted text-foreground'
-              }`}
+              className={`max-w-[85%] rounded-2xl px-4 py-2 ${msg.sender === 'user'
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-muted text-foreground'
+                }`}
             >
               {/* Only show raw text if we didn't successfully parse the English/Hindi parts */}
               {(!msg.english && !msg.hindi) && (
                 <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
               )}
-              
+
               {msg.sender === 'assistant' && (
                 <>
                   {msg.mythStatus && (
-                    <div className={`mt-2 p-3 rounded-lg text-sm font-semibold ${
-                      msg.mythStatus === 'TRUE' 
-                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100' 
-                        : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
-                    }`}>
+                    <div className={`mt-2 p-3 rounded-lg text-sm font-semibold ${msg.mythStatus === 'TRUE'
+                      ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+                      : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100'
+                      }`}>
                       {msg.mythStatus === 'TRUE' ? '✅ Myth is True' : '❌ Myth is False'}
                     </div>
                   )}
-                  
+
                   {(msg.english || msg.hindi) && (
                     <div className="mt-3 space-y-2">
                       {msg.english && (
@@ -224,7 +204,7 @@ Hindi: (सिमुलेशन) मैं ऑफ़लाइन मोड म�
                       )}
                     </div>
                   )}
-                  
+
                   <button
                     onClick={() => speakText(msg.english || msg.text)}
                     disabled={isSpeaking}
@@ -238,7 +218,7 @@ Hindi: (सिमुलेशन) मैं ऑफ़लाइन मोड म�
             </div>
           </div>
         ))}
-        
+
         {isTyping && (
           <div className="flex justify-start">
             <div className="bg-muted rounded-2xl px-4 py-2">
