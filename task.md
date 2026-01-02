@@ -18,3 +18,21 @@
     - [x] Verify lazy loading (network tab).
     - [x] Verify persistence/caching of translations.
     - [x] Verify Marathi text rendering.
+
+# Phase 2: Pan-India Expansion (5 New Languages)
+
+- [x] **Infrastructure Update**
+    - [x] Update `src/i18n.ts` to include `bn`, `te`, `ta`, `or`, `pa`.
+    - [x] Update `LanguageSwitcher.tsx` with native names and check dropdown scalability.
+
+- [x] **Translation Generation**
+    - [x] Create `public/locales/bn/translation.json` (Bengali).
+    - [x] Create `public/locales/te/translation.json` (Telugu).
+    - [x] Create `public/locales/ta/translation.json` (Tamil).
+    - [x] Create `public/locales/or/translation.json` (Odia).
+    - [x] Create `public/locales/pa/translation.json` (Punjabi).
+
+- [x] **UI Scalability Audit**
+    - [x] Audit 'Health Education' cards for text overflow with longer scripts (Tamil/Telugu).
+    - [x] Audit 'Myth vs Fact' flip-cards for content fitting.
+

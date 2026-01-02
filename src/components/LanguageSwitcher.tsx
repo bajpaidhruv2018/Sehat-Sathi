@@ -20,6 +20,11 @@ export const LanguageSwitcher = () => {
         { code: 'en', label: 'English', flag: '🇬🇧' },
         { code: 'hi', label: 'हिंदी (Hindi)', flag: '🇮🇳' },
         { code: 'mr', label: 'मराठी (Marathi)', flag: '🇮🇳' },
+        { code: 'bn', label: 'বাংলা (Bengali)', flag: '🇮🇳' },
+        { code: 'te', label: 'తెలుగు (Telugu)', flag: '🇮🇳' },
+        { code: 'ta', label: 'தமிழ் (Tamil)', flag: '🇮🇳' },
+        { code: 'or', label: 'ଓଡ଼ିଆ (Odia)', flag: '🇮🇳' },
+        { code: 'pa', label: 'ਪੰਜਾਬੀ (Punjabi)', flag: '🇮🇳' },
     ];
 
     const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
