@@ -1,73 +1,130 @@
-# Welcome to your Lovable project
+# 🩺 Sehat Saathi (सेहत साथी)
+### *Bridging the Rural Healthcare Gap with AI-Driven Empathy & Digital Literacy*
 
-## Project info
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![AI-Powered](https://img.shields.io/badge/AI-Gemini%201.5%20Flash-green)
+![Accessibility](https://img.shields.io/badge/Accessibility-Bilingual--Audio-orange)
 
-**URL**: https://lovable.dev/projects/765fd9f1-f13e-43d4-8638-c1bf083478a1
+---
 
-## How can I edit this code?
+## 📖 Project Overview
+**Sehat Saathi** is an all-in-one digital health companion designed for rural India. It targets the "Next Billion Users" by removing barriers of literacy, language, and misinformation. By combining generative AI with real-time mapping and gamified education, Sehat Saathi empowers users to navigate the healthcare system with confidence.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 🚀 Active Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/765fd9f1-f13e-43d4-8638-c1bf083478a1) and start prompting.
+### 🤖 1. AI Health Chatbot ("Sehat Saathi")
+- **WhatsApp-Style UI:** A familiar, high-trust chat interface.
+- **Bilingual Intelligence:** Powered by **Gemini AI** to handle complex health queries in both English and Hindi.
+- **Floating Access:** Always available via a "Sparkles" button on every page.
 
-Changes made via Lovable will be committed automatically to this repo.
+### 📍 2. Smart Hospital Locator
+- **Live Location Logic:** Real-time hospital discovery using Google Maps API.
+- **Emergency Triage:** Filters results by "Severity." High-severity cases highlight red markers and prioritize proximity.
+- **Deep Insights:** Displays ETA (driving time), distance, opening status, and one-tap calling.
 
-**Use your preferred IDE**
+### 🎓 3. Health Education Hub
+- **Visual Library:** Module cards for Hygiene, Vaccination, Nutrition, and Mental Health.
+- **Audio Support:** Integrated **Text-to-Speech (TTS)** "Listen" buttons for illiterate or elderly users.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 📚 4. Digital Health Literacy
+- **Step-by-Step Tutorials:** Guides for booking appointments, digital payments, and using health apps.
+- **Gamified Progress:** Users earn "Beginner" and "Intermediate" badges as they master digital health skills.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 🚨 5. Emergency Center
+- **SOS Countdown:** A persistent red button that triggers a countdown to call **108 (Ambulance)**.
+- **Quick Dial Cards:** Direct access to Police (112), Women's Helpline (1091), and Child Helpline (1098).
+- **First Aid Tips:** Immediate "What to do while waiting" instructions.
 
-Follow these steps:
+### ❌ 6. Myth vs. Fact (Misconceptions)
+- **Interactive Flip-Cards:** Scientific debunking of common rural health myths (e.g., vaccine rumors, pregnancy nutrition).
+- **Audio Enabled:** Myths and facts can be read aloud in regional languages.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 👨‍⚕️ 7. Ask a Doctor
+- **Consultation Interface:** A structured form for users to submit specific medical queries.
+- **AI-Simulated Response:** Provides immediate, high-quality medical guidance powered by Supabase Edge Functions.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 📊 8. User Dashboard
+- **Progress Tracking:** Visualized charts showing literacy module completion.
+- **Badge Showcase:** A gallery of earned achievements like "Health Guardian" or "Tech Savvy."
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 🌐 Global Accessibility Features
+- **Multilingual Support:** Full interface switching between English, Hindi, and regional dialects.
+- **Voice-First Design:** Extensive text-to-speech integration to assist users with reading difficulties.
+- **Theme Support:** Dark/Light mode optimization for varying lighting conditions.
+
+---
+
+## 🛠️ Tech Stack
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | React.js, Tailwind CSS, Lucide Icons, Vite |
+| **Backend** | Supabase (Database, Auth, Edge Functions) |
+| **AI Engine** | Google Gemini 1.5 Flash (via Supabase Edge) |
+| **Mapping** | Google Maps JavaScript API, Places API, Distance Matrix API |
+
+---
+
+## 🏗️ Architecture
+1. **The Brain:** Supabase Edge Functions act as a bridge between the user and Google Gemini.
+2. **The Map:** Google Maps API calculates real-time ETA based on user coordinates.
+3. **The Voice:** Browser-native Web Speech API provides text-to-speech for accessibility.
+4. **The Trust:** WhatsApp-inspired UI components ensure zero learning curve for the user.
+
+---
+
+## 🚀 How to Run
+
+Follow these steps to set up the project locally on your machine.
+
+### 1. Prerequisites
+- **Node.js** (v18.0+) & **npm**
+- **Supabase CLI** (Required for Edge Functions)
+- **Google Cloud Account** (For Maps & Gemini API Keys)
+
+### 2. Clone the Repository
+```bash
+git clone [https://github.com/your-username/SehatSaathi.git](https://github.com/your-username/SehatSaathi.git)
+cd SehatSaathi
 ```
 
-**Edit a file directly in GitHub**
+### 3. Install Dependencies
+```bash
+npm install
+```
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 4. Configure Environment Variables
+Create a file named .env in the root directory and add your credentials:
+```Code snippet
+# Supabase Configuration
+VITE_SUPABASE_URL=[https://your-project-id.supabase.co](https://your-project-id.supabase.co)
+VITE_SUPABASE_ANON_KEY=your-anon-key
 
-**Use GitHub Codespaces**
+# Google Maps Platform
+VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### 5. Setup Backend(AI & Supabase)
+To enable the Gemini AI Chatbot and Triage Logic, you must configure the Supabase Edge Functions:
+```bash
+# Link your local CLI to your Supabase project
+supabase login
+supabase link --project-ref your-project-id
 
-## What technologies are used for this project?
+# Set your Gemini API Key in Supabase Secrets
+supabase secrets set GEMINI_API_KEY=your_gemini_api_key
 
-This project is built with:
+# Deploy the AI Edge Function
+supabase functions deploy triage-assist
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 6. Run Development Server
+```bash
+npm run dev
+```
+Open http://localhost:5173 in your browser to see the app.
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/765fd9f1-f13e-43d4-8638-c1bf083478a1) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
