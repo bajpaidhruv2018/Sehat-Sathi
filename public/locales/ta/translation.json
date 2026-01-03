@@ -32,137 +32,137 @@
             {
                 "id": 1,
                 "myth": "தடுப்பூசி போடுவதால் நோய் வரும்.",
-                "mythHi": "தடுப்பூசி போடுவதால் நோய் வரும்.",
+                "mythHi": "Vaccines cause illness.",
                 "fact": "தடுப்பூசிகள் உங்களையும் உங்கள் குடும்பத்தையும் ஆபத்தான நோய்களிலிருந்து பாதுகாக்கின்றன.",
-                "factHi": "தடுப்பூசிகள் உங்களையும் உங்கள் குடும்பத்தையும் ஆபத்தான நோய்களிலிருந்து பாதுகாக்கின்றன.",
+                "factHi": "Vaccines protect you and your family from serious diseases.",
                 "tip": "தடுப்பூசியில் நோயை உண்டாக்கும் கிருமிகளின் வலுவிழந்த அல்லது செயலற்ற பகுதிகள் உள்ளன, இவை உங்கள் உடலின் நோய் எதிர்ப்பு சக்தியைத் தூண்டுகின்றன. இவை பாதுகாப்பானவை; போலியோ, தட்டம்மை மற்றும் டெட்டனஸ் போன்ற தீவிர நோய்களிலிருந்து பாதுகாக்கின்றன.",
-                "tipHi": "தடுப்பூசியில் நோயை உண்டாக்கும் கிருமிகளின் வலுவிழந்த அல்லது செயலற்ற பகுதிகள் உள்ளன, இவை உங்கள் உடலின் நோய் எதிர்ப்பு சக்தியைத் தூண்டுகின்றன. இவை பாதுகாப்பானவை; போலியோ, தட்டம்மை மற்றும் டெட்டனஸ் போன்ற தீவிர நோய்களிலிருந்து பாதுகாக்கின்றன."
+                "tipHi": "Vaccines contain weakened or inactive parts of a disease that trigger your body's immune response. They are safe and prevent serious illnesses like polio, measles, and tetanus."
             },
             {
                 "id": 2,
                 "myth": "கர்ப்பிணிப் பெண்கள் குறைவாகச் சாப்பிட வேண்டும்.",
-                "mythHi": "கர்ப்பிணிப் பெண்கள் குறைவாகச் சாப்பிட வேண்டும்.",
+                "mythHi": "Pregnant women should eat less.",
                 "fact": "தாயும் சேயும் ஆரோக்கியமாக இருக்க அவர்கள் சத்தான உணவைச் சாப்பிட வேண்டும்.",
-                "factHi": "தாயும் சேயும் ஆரோக்கியமாக இருக்க அவர்கள் சத்தான உணவைச் சாப்பிட வேண்டும்.",
+                "factHi": "They should eat nutritious food for their health and baby's growth.",
                 "tip": "கர்ப்பிணிப் பெண்களுக்கு இரும்புச்சத்து, ஃபோலிக் அமிலம் மற்றும் கால்சியம் போன்ற கூடுதல் சத்துக்கள் தேவை. சரிவிகித உணவு பாதுகாப்பான கர்ப்பத்தையும் குழந்தையின் வளர்ச்சியையும் உறுதி செய்கிறது.",
-                "tipHi": "கர்ப்பிணிப் பெண்களுக்கு இரும்புச்சத்து, ஃபோலிக் அமிலம் மற்றும் கால்சியம் போன்ற கூடுதல் சத்துக்கள் தேவை. சரிவிகித உணவு பாதுகாப்பான கர்ப்பத்தையும் குழந்தையின் வளர்ச்சியையும் உறுதி செய்கிறது."
+                "tipHi": "Pregnant women need extra nutrients including iron, folic acid, and calcium. Eating balanced meals helps ensure a healthy pregnancy and baby development."
             },
             {
                 "id": 3,
                 "myth": "காய்ச்சிய நீர் உடலுக்குக் கெடுதல்.",
-                "mythHi": "காய்ச்சிய நீர் உடலுக்குக் கெடுதல்.",
+                "mythHi": "Boiled water is bad for health.",
                 "fact": " நீரைக் காய்ச்சுவதால் கிருமிகள் அழிந்து, அது குடிப்பதற்கு ஏற்றதாகிறது.",
-                "factHi": " நீரைக் காய்ச்சுவதால் கிருமிகள் அழிந்து, அது குடிப்பதற்கு ஏற்றதாகிறது.",
+                "factHi": "Boiling kills germs and makes water safe to drink.",
                 "tip": "தீங்கு விளைவிக்கும் பாக்டீரியா, வைரஸ் மற்றும் ஒட்டுண்ணிகளை அழிக்க நீரைக் குறைந்தது 10-15 நிமிடங்கள் கொதிக்க வைக்கவும். இந்த எளிய முறை வயிற்றுப்போக்கு மற்றும் காலரா போன்ற நோய்களைத் தடுக்கிறது.",
-                "tipHi": "தீங்கு விளைவிக்கும் பாக்டீரியா, வைரஸ் மற்றும் ஒட்டுண்ணிகளை அழிக்க நீரைக் குறைந்தது 10-15 நிமிடங்கள் கொதிக்க வைக்கவும். இந்த எளிய முறை வயிற்றுப்போக்கு மற்றும் காலரா போன்ற நோய்களைத் தடுக்கிறது."
+                "tipHi": "Boil water for at least 10-15 minutes to remove harmful bacteria, viruses, and parasites. This simple method prevents waterborne diseases like diarrhea and cholera."
             },
             {
                 "id": 4,
                 "myth": "காய்ச்சல் வந்தால் குளிர்ந்த நீர் பயன்படுத்தக்கூடாது.",
-                "mythHi": "காய்ச்சல் வந்தால் குளிர்ந்த நீர் பயன்படுத்தக்கூடாது.",
+                "mythHi": "Fever should not be treated with cold water.",
                 "fact": "ஈரத் துணியால் துடைப்பது காய்ச்சலைக் குறைக்க உதவும்.",
-                "factHi": "ஈரத் துணியால் துடைப்பது காய்ச்சலைக் குறைக்க உதவும்.",
+                "factHi": "Cold compress helps reduce fever safely.",
                 "tip": "அறை வெப்பநிலையில் உள்ள அல்லது சிறிது குளிர்ந்த நீரில் நனைத்த சுத்தமான துணியை நெற்றியில் வைக்கவும். இது உடல் வெப்பநிலையை இயற்கையாகக் குறைக்க உதவுகிறது. மிகவும் குளிர்ந்த நீர் அல்லது ஐஸ் கட்டிகளைப் பயன்படுத்த வேண்டாம், அது நடுக்கத்தை ஏற்படுத்தலாம்.",
-                "tipHi": "அறை வெப்பநிலையில் உள்ள அல்லது சிறிது குளிர்ந்த நீரில் நனைத்த சுத்தமான துணியை நெற்றியில் வைக்கவும். இது உடல் வெப்பநிலையை இயற்கையாகக் குறைக்க உதவுகிறது. மிகவும் குளிர்ந்த நீர் அல்லது ஐஸ் கட்டிகளைப் பயன்படுத்த வேண்டாம், அது நடுக்கத்தை ஏற்படுத்தலாம்."
+                "tipHi": "Use a clean cloth soaked in room temperature or slightly cool water on the forehead. This helps bring down body temperature naturally. Avoid ice-cold water as it may cause shivering."
             },
             {
                 "id": 5,
                 "myth": "நகரத்து மருத்துவமனைகளில் மட்டுமே நல்ல சிகிச்சை கிடைக்கும்.",
-                "mythHi": "நகரத்து மருத்துவமனைகளில் மட்டுமே நல்ல சிகிச்சை கிடைக்கும்.",
+                "mythHi": "Only city hospitals provide good treatment.",
                 "fact": "அரசு ஆரம்ப சுகாதார நிலையங்களும் (PHC) இலவச மற்றும் தரமான சிகிச்சையை அளிக்கின்றன.",
-                "factHi": "அரசு ஆரம்ப சுகாதார நிலையங்களும் (PHC) இலவச மற்றும் தரமான சிகிச்சையை அளிக்கின்றன.",
+                "factHi": "Government Primary Health Centres (PHCs) also give free, quality care.",
                 "tip": "PHC-க்களில் இலவச மருந்துகள், தடுப்பூசிகள், மகப்பேறு மருத்துவம் மற்றும் அடிப்படை சிகிச்சைகள் கிடைக்கின்றன. பொதுவான உடல்நலப் பிரச்சனைகளுக்கு உதவ ஆஷாப் பணியாளர்கள் மற்றும் செவிலியர்கள் பயிற்சி பெற்றுள்ளனர். பரிசோதனைக்கு உங்கள் அருகிலுள்ள PHC-க்குச் செல்லவும்.",
-                "tipHi": "PHC-க்களில் இலவச மருந்துகள், தடுப்பூசிகள், மகப்பேறு மருத்துவம் மற்றும் அடிப்படை சிகிச்சைகள் கிடைக்கின்றன. பொதுவான உடல்நலப் பிரச்சனைகளுக்கு உதவ ஆஷாப் பணியாளர்கள் மற்றும் செவிலியர்கள் பயிற்சி பெற்றுள்ளனர். பரிசோதனைக்கு உங்கள் அருகிலுள்ள PHC-க்குச் செல்லவும்."
+                "tipHi": "PHCs provide free medicines, vaccinations, maternal care, and basic treatments. ASHA workers and ANMs are trained to help with common health issues. Visit your nearest PHC for checkups."
             },
             {
                 "id": 6,
                 "myth": "கர்ப்ப காலத்தில் பப்பாளி சாப்பிடுவது கருச்சிதைவை ஏற்படுத்தும்.",
-                "mythHi": "गर्भावस्था के दौरान पपीता खाने से गर्भपात होता है।",
+                "mythHi": "Eating papaya during pregnancy causes miscarriage.",
                 "fact": "பழுத்த பப்பாளி பாதுகாப்பானது மற்றும் வைட்டமின்கள் நிறைந்தது.",
-                "factHi": "पका हुआ पपीता सुरक्षित होता है और विटामिन से भरपूर होता है।",
+                "factHi": "Ripe papaya is safe and full of vitamins.",
                 "tip": "நன்கு பழுத்த பப்பாளி கர்ப்பிணிப் பெண்களுக்கு சிறந்தது, ஏனெனில் இதில் வைட்டமின் ஏ மற்றும் சி உள்ளது. பச்சையாக அல்லது அரைவேக்காடு பப்பாளியைத் தவிர்க்கவும்.",
-                "tipHi": "पूरी तरह से पका हुआ पपीता गर्भवती महिलाओं के लिए बहुत अच्छा होता है क्योंकि इसमें विटामिन ए और सी होता है। कच्चे या अधपके पपीते से बचें क्योंकि इसमें लैटेक्स होता है जो हानिकारक हो सकता है।"
+                "tipHi": "Fully ripe papaya is excellent for pregnant women as it contains Vitamin A and C. Avoid raw or semi-ripe papaya as it contains latex which might be harmful."
             },
             {
                 "id": 7,
                 "myth": "மனநலம் பாதிக்கப்பட்டவர்களுக்கு பேய் பிடித்திருக்கிறது.",
-                "mythHi": "मानसिक बीमारी बुरी आत्माओं के कारण होती है।",
+                "mythHi": "Mental illness is caused by evil spirits.",
                 "fact": "இது மருத்துவர்களால் குணப்படுத்தக்கூடிய ஒரு நோய்.",
-                "factHi": "यह एक चिकित्सीय स्थिति है जिसका इलाज डॉक्टरों द्वारा किया जा सकता है।",
+                "factHi": "It is a medical condition treatable by doctors.",
                 "tip": "மனநலப் பிரச்சினைகள் மூளை சம்பந்தப்பட்ட நோய்கள், அமானுஷ்ய நிகழ்வுகள் அல்ல. மனநல மருத்துவர்கள் மற்றும் உளவியலாளர்கள் இதற்கு சிகிச்சை அளிக்க முடியும்.",
-                "tipHi": "मानसिक स्वास्थ्य समस्याएं मस्तिष्क संबंधी विकार हैं, कोई अलौकिक घटना नहीं। मनोचिकित्सक और मनोवैज्ञानिक चिकित्सा और दवा के साथ उनका इलाज कर सकते हैं।"
+                "tipHi": "Mental health issues are brain disorders, not supernatural events. Psychiatrists and psychologists can treat them with therapy and medication."
             },
             {
                 "id": 8,
                 "myth": "ஆன்டிபயாடிக்ஸ் சளி மற்றும் காய்ச்சலைக் குணப்படுத்தும்.",
-                "mythHi": "एंटीबायोटिक्स सर्दी और फ्लू को ठीक करते हैं।",
+                "mythHi": "Antibiotics cure colds and flu.",
                 "fact": "ஆன்டிபயாடிக்ஸ் பாக்டீரியாவை மட்டுமே கொல்லும், வைரஸ்களை அல்ல.",
-                "factHi": "एंटीबायोटिक्स केवल बैक्टीरिया को मारते हैं, वायरस को नहीं।",
+                "factHi": "Antibiotics only kill bacteria, not viruses.",
                 "tip": "சளி மற்றும் காய்ச்சல் வைரஸால் ஏற்படுகிறது. இதற்கு ஆன்டிபயாடிக்ஸ் வேலை செய்யாது. ஓய்வு மற்றும் நீர்ச்சத்து எடுத்துக்கொள்வதே சிறந்தது.",
-                "tipHi": "सर्दी और फ्लू वायरस के कारण होते हैं। उनके लिए एंटीबायोटिक लेने से कोई मदद नहीं मिलेगी और एंटीबायोटिक प्रतिरोध बढ़ सकता है। आराम और जलयोजन सबसे अच्छा है।"
+                "tipHi": "Colds and flu are caused by viruses. Taking antibiotics for them won't help and can increase antibiotic resistance. Rest and hydration are best."
             },
             {
                 "id": 9,
                 "myth": "ஆண்கள் குடும்பக் கட்டுப்பாட்டைப் பற்றி கவலைப்படத் தேவையில்லை.",
-                "mythHi": "पुरुषों को परिवार नियोजन के बारे में चिंता करने की जरूरत नहीं है।",
+                "mythHi": "Men don't need to worry about family planning.",
                 "fact": "குடும்பக் கட்டுப்பாடு என்பது இருவருக்கும் பொதுவான பொறுப்பு.",
-                "factHi": "परिवार नियोजन एक साझा जिम्मेदारी है।",
+                "factHi": "Family planning is a shared responsibility.",
                 "tip": "ஆண்கள் இதில் முக்கிய பங்கு வகிக்கின்றனர். ஆணுறை பாதுகாப்பான, பயனுள்ள கருத்தடை முறை.",
-                "tipHi": "पुरुष महत्वपूर्ण भूमिका निभाते हैं। कंडोम गर्भनिरोधक का एक सुरक्षित, प्रभावी तरीका है जिसमें पुरुष शामिल होते हैं और यौन संचारित संक्रमणों से भी बचाता है।"
+                "tipHi": "Men play a crucial role. Condoms are a safe, effective method of contraception that involves men and also protects against sexually transmitted infections."
             },
             {
                 "id": 10,
                 "myth": "கர்ப்ப காலத்தில் குறைந்த அளவு தண்ணீர் குடிப்பது வீக்கத்தைக் குறைக்கும்.",
-                "mythHi": "गर्भावस्था के दौरान कम पानी पीने से सूजन कम हो जाती है।",
+                "mythHi": "Drinking less water reduces swelling during pregnancy.",
                 "fact": "போதுமான அளவு தண்ணீர் குடிப்பதே வீக்கத்தைக் குறைக்க உதவும்.",
-                "factHi": "पर्याप्त पानी पीने से वास्तव में सूजन कम करने में मदद मिलती है।",
+                "factHi": "Drinking enough water actually helps reduce swelling.",
                 "tip": "நீர்ச்சத்து உடலில் இருந்து கழிவுகளை வெளியேற்ற உதவுகிறது. கர்ப்பிணிப் பெண்கள் தினமும் 8-10 டம்ளர் தண்ணீர் குடிக்க வேண்டும்.",
-                "tipHi": "हाइड्रेटेड रहने से अपशिष्ट को बाहर निकालने में मदद मिलती है और तरल प्रतिधारण को रोकता है। गर्भवती महिलाओं को रोजाना 8-10 गिलास पानी पीना चाहिए।"
+                "tipHi": "Staying hydrated helps flush out waste and prevents fluid retention. Pregnant women should drink 8-10 glasses of water daily."
             },
             {
                 "id": 11,
                 "myth": "கண்ணாடி அணிவது கண்பார்வையை மேலும் மோசமாக்கும்.",
-                "mythHi": "चश्मा पहनने से आंखों की रोशनी और खराब हो जाती है।",
+                "mythHi": "Wearing glasses makes eyesight worse.",
                 "fact": "கண்ணாடி பார்வையை சரிசெய்து கண் சோர்வைக் குறைக்கும்.",
-                "factHi": "चश्मा दृष्टि को ठीक करता है और आंखों के तनाव को कम करता है।",
+                "factHi": "Glasses correct vision and reduce eye strain.",
                 "tip": "கண்ணாடி உங்களுக்குத் தெளிவாகப் பார்க்க உதவுகிறது. இது உங்கள் கண்களை பலவீனப்படுத்தாது; அணிய மறுப்பது தலைவலியை ஏற்படுத்தலாம்.",
-                "tipHi": "चश्मा आपको स्पष्ट रूप से देखने में मदद करता है और आपकी आंखों को बहुत मेहनत करने से रोकता है। वे आपकी आंखों को कमजोर नहीं करते हैं; उन्हें पहनने से इनकार करने पर सिरदर्द हो सकता है।"
+                "tipHi": "Glasses help you see clearly and stop your eyes from working too hard. They do not weaken your eyes; refusing to wear them might cause headaches."
             },
             {
                 "id": 12,
                 "myth": "டெங்கு கொசுக்கள் இரவில் மட்டுமே கடிக்கும்.",
-                "mythHi": "डेंगू के मच्छर केवल रात में काटते हैं।",
+                "mythHi": "Dengue mosquitoes only bite at night.",
                 "fact": "இவை முக்கியமாக பகல் நேரத்தில்தான் கடிக்கும்.",
-                "factHi": "वे मुख्य रूप से दिन के दौरान काटते हैं।",
+                "factHi": "They primarily bite during the day.",
                 "tip": "டெங்குவைப் பரப்பும் ஏடிஸ் கொசுக்கள் அதிகாலை மற்றும் பிற்பகலில் சுறுசுறுப்பாக இருக்கும். பகலிலும் கொசு விரட்டிகளைப் பயன்படுத்தவும்.",
-                "tipHi": "एडीज मच्छर, जो डेंगू फैलाते हैं, सुबह और देर दोपहर में सबसे अधिक सक्रिय होते हैं। दिन के दौरान भी विकर्षक का प्रयोग करें और पूरी आस्तीन वाले कपड़े पहनें।"
+                "tipHi": "Aedes mosquitoes, which spread dengue, are most active early morning and late afternoon. Use repellents and wear full sleeves even during the day."
             },
             {
                 "id": 13,
                 "myth": "பிறந்த குழந்தைகளுக்கு முதலில் தேன் அல்லது தண்ணீர் கொடுக்க வேண்டும்.",
-                "mythHi": "नवजात शिशुओं को पहले शहद या पानी दिया जाना चाहिए।",
+                "mythHi": "Newborns should be given honey or water first.",
                 "fact": "6 மாதம் வரை தாய்ப்பால் மட்டுமே கொடுக்க வேண்டும்.",
-                "factHi": "6 महीने तक केवल मां का दूध ही देना चाहिए।",
+                "factHi": "Only breastmilk should be given for 6 months.",
                 "tip": "தாய்ப்பாலில் குழந்தைக்குத் தேவையான அனைத்து நீர்ச்சத்து மற்றும் ஊட்டச்சத்துக்கள் உள்ளன. 1 வயதுக்குட்பட்ட குழந்தைகளுக்கு தேன் ஆபத்தானது.",
-                "tipHi": "मां के दूध में वह सारा पानी और पोषक तत्व होते हैं जो बच्चे को चाहिए होते हैं। बोटुलिज़्म के खतरे के कारण 1 साल से कम उम्र के बच्चों के लिए शहद खतरनाक हो सकता है।"
+                "tipHi": "Breastmilk contains all the water and nutrients a baby needs. Honey can be dangerous for infants under 1 year due to botulism risk."
             },
             {
                 "id": 14,
                 "myth": "காசநோய் பரம்பரை நோய் மற்றும் குணப்படுத்த முடியாதது.",
-                "mythHi": "टीबी वंशानुगत है और इसका इलाज नहीं किया जा सकता है।",
+                "mythHi": "TB is hereditary and cannot be cured.",
                 "fact": "காசநோய் தொற்றுநோயாகும், ஆனால் முழுமையாக குணப்படுத்தக்கூடியது.",
-                "factHi": "टीबी संक्रामक है लेकिन पूरी तरह से इलाज योग्य है।",
+                "factHi": "TB is infectious but completely curable.",
                 "tip": "யாராவது இருமும்போது காசநோய் காற்றின் மூலம் பரவுகிறது. இது மரபணு சார்ந்தது அல்ல. DOTS சிகிச்சையின் மூலம் இதை முழுமையாக குணப்படுத்தலாம்.",
-                "tipHi": "जब कोई खांसता है तो तपेदिक हवा के माध्यम से फैलता है। यह आनुवंशिक नहीं है। डॉट्स (DOTS) उपचार के एक पूर्ण पाठ्यक्रम के साथ, इसे पूरी तरह से ठीक किया जा सकता है।"
+                "tipHi": "Tuberculosis spreads through air when someone coughs. It is not genetic. With a full course of DOTS treatment, it can be cured completely."
             },
             {
                 "id": 15,
                 "myth": "பாம்பு கடித்தால் வெட்டி விஷத்தை உறிஞ்ச வேண்டும்.",
-                "mythHi": "सांप के काटने पर काट कर चूसना चाहिए।",
+                "mythHi": "Snake bites should be cut and sucked.",
                 "fact": "ஒருபோதும் வெட்டவோ உறிஞ்சவோ கூடாது; மருத்துவமனைக்குச் செல்லுங்கள்.",
-                "factHi": "घाव को कभी न काटें या चूसें; अस्पताल जाएं।",
+                "factHi": "Never cut or suck the wound; go to hospital.",
                 "tip": "கடித்த கையை அல்லது காலை அசைக்காமல் மருத்துவமனைக்குச் செல்லுங்கள். வெட்டுவது அல்லது உறிஞ்சுவது நேரத்தை வீணடிக்கும். மருத்துவமனையில் ஆன்டிவெனம் மட்டுமே தீர்வு.",
-                "tipHi": "काटे गए अंग को स्थिर करें और रोगी को शांत रखें। काटने या चूसने से समय बर्बाद होता है और संक्रमण हो सकता है। अस्पताल में एंटीवेनम ही एकमात्र इलाज है।"
+                "tipHi": "Immobilize the bitten limb and keep the patient calm. Cutting or sucking wastes time and can cause infection. Antivenom at a hospital is the only cure."
             }
         ]
     },

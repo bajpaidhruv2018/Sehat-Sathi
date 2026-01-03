@@ -32,137 +32,137 @@
             {
                 "id": 1,
                 "myth": "ਟੀਕਾ ਲਗਵਾਉਣ ਨਾਲ ਬਿਮਾਰੀ ਹੁੰਦੀ ਹੈ।",
-                "mythHi": "ਟੀਕਾ ਲਗਵਾਉਣ ਨਾਲ ਬਿਮਾਰੀ ਹੁੰਦੀ ਹੈ।",
+                "mythHi": "Vaccines cause illness.",
                 "fact": "ਟੀਕੇ ਤੁਹਾਨੂੰ ਅਤੇ ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਨੂੰ ਖਤਰਨਾਕ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਾਉਂਦੇ ਹਨ।",
-                "factHi": "ਟੀਕੇ ਤੁਹਾਨੂੰ ਅਤੇ ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਨੂੰ ਖਤਰਨਾਕ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਾਉਂਦੇ ਹਨ।",
+                "factHi": "Vaccines protect you and your family from serious diseases.",
                 "tip": "ਟੀਕੇ ਸਰੀਰ ਦੀ ਬਿਮਾਰੀਆਂ ਨਾਲ ਲੜਨ ਦੀ ਤਾਕਤ ਵਧਾਉਂਦੇ ਹਨ। ਇਹ ਸੁਰੱਖਿਅਤ ਹਨ ਅਤੇ ਪੋਲੀਓ, ਖਸਰਾ ਅਤੇ ਟੈਟਨਸ ਵਰਗੀਆਂ ਭੈੜੀਆਂ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਾਉਂਦੇ ਹਨ।",
-                "tipHi": "ਟੀਕੇ ਸਰੀਰ ਦੀ ਬਿਮਾਰੀਆਂ ਨਾਲ ਲੜਨ ਦੀ ਤਾਕਤ ਵਧਾਉਂਦੇ ਹਨ। ਇਹ ਸੁਰੱਖਿਅਤ ਹਨ ਅਤੇ ਪੋਲੀਓ, ਖਸਰਾ ਅਤੇ ਟੈਟਨਸ ਵਰਗੀਆਂ ਭੈੜੀਆਂ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਾਉਂਦੇ ਹਨ।"
+                "tipHi": "Vaccines contain weakened or inactive parts of a disease that trigger your body's immune response. They are safe and prevent serious illnesses like polio, measles, and tetanus."
             },
             {
                 "id": 2,
                 "myth": "ਗਰਭਵਤੀ ਔਰਤਾਂ ਨੂੰ ਘੱਟ ਖਾਣਾ ਚਾਹੀਦਾ ਹੈ।",
-                "mythHi": "ਗਰਭਵਤੀ ਔਰਤਾਂ ਨੂੰ ਘੱਟ ਖਾਣਾ ਚਾਹੀਦਾ ਹੈ।",
+                "mythHi": "Pregnant women should eat less.",
                 "fact": "ਮਾਂ ਅਤੇ ਬੱਚੇ ਦੀ ਚੰਗੀ ਸਿਹਤ ਲਈ ਉਹਨਾਂ ਨੂੰ ਵਧੀਆ ਖੁਰਾਕ ਲੈਣੀ ਚਾਹੀਦੀ ਹੈ।",
-                "factHi": "ਮਾਂ ਅਤੇ ਬੱਚੇ ਦੀ ਚੰਗੀ ਸਿਹਤ ਲਈ ਉਹਨਾਂ ਨੂੰ ਵਧੀਆ ਖੁਰਾਕ ਲੈਣੀ ਚਾਹੀਦੀ ਹੈ।",
+                "factHi": "They should eat nutritious food for their health and baby's growth.",
                 "tip": "ਗਰਭਵਤੀ ਔਰਤਾਂ ਨੂੰ ਆਇਰਨ, ਫੋਲਿਕ ਐਸਿਡ ਅਤੇ ਕੈਲਸ਼ੀਅਮ ਦੀ ਜ਼ਿਆਦਾ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਚੰਗਾ ਖਾਣਾ ਖਾਣ ਨਾਲ ਮਾਂ ਅਤੇ ਬੱਚਾ ਦੋਵੇਂ ਤੰਦਰੁਸਤ ਰਹਿੰਦੇ ਹਨ।",
-                "tipHi": "ਗਰਭਵਤੀ ਔਰਤਾਂ ਨੂੰ ਆਇਰਨ, ਫੋਲਿਕ ਐਸਿਡ ਅਤੇ ਕੈਲਸ਼ੀਅਮ ਦੀ ਜ਼ਿਆਦਾ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਚੰਗਾ ਖਾਣਾ ਖਾਣ ਨਾਲ ਮਾਂ ਅਤੇ ਬੱਚਾ ਦੋਵੇਂ ਤੰਦਰੁਸਤ ਰਹਿੰਦੇ ਹਨ।"
+                "tipHi": "Pregnant women need extra nutrients including iron, folic acid, and calcium. Eating balanced meals helps ensure a healthy pregnancy and baby development."
             },
             {
                 "id": 3,
                 "myth": "ਉਬਲਿਆ ਹੋਇਆ ਪਾਣੀ ਸਿਹਤ ਲਈ ਮਾੜਾ ਹੈ।",
-                "mythHi": "ਉਬਲਿਆ ਹੋਇਆ ਪਾਣੀ ਸਿਹਤ ਲਈ ਮਾੜਾ ਹੈ।",
+                "mythHi": "Boiled water is bad for health.",
                 "fact": "ਪਾਣੀ ਉਬਾਲਣ ਨਾਲ ਕੀਟਾਣੂ ਮਰ ਜਾਂਦੇ ਹਨ ਅਤੇ ਇਹ ਪੀਣ ਲਈ ਸਾਫ ਹੋ ਜਾਂਦਾ ਹੈ।",
-                "factHi": "ਪਾਣੀ ਉਬਾਲਣ ਨਾਲ ਕੀਟਾਣੂ ਮਰ ਜਾਂਦੇ ਹਨ ਅਤੇ ਇਹ ਪੀਣ ਲਈ ਸਾਫ ਹੋ ਜਾਂਦਾ ਹੈ।",
+                "factHi": "Boiling kills germs and makes water safe to drink.",
                 "tip": "ਬਿਮਾਰੀ ਫੈਲਾਉਣ ਵਾਲੇ ਕੀਟਾਣੂਆਂ ਨੂੰ ਮਾਰਨ ਲਈ ਪਾਣੀ ਨੂੰ ਘੱਟੋ-ਘੱਟ 10-15 ਮਿੰਟ ਉਬਾਲੋ। ਇਸ ਨਾਲ ਦਸਤ ਅਤੇ ਹੈਜਾ ਵਰਗੀਆਂ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਿਆ ਜਾ ਸਕਦਾ ਹੈ।",
-                "tipHi": "ਬਿਮਾਰੀ ਫੈਲਾਉਣ ਵਾਲੇ ਕੀਟਾਣੂਆਂ ਨੂੰ ਮਾਰਨ ਲਈ ਪਾਣੀ ਨੂੰ ਘੱਟੋ-ਘੱਟ 10-15 ਮਿੰਟ ਉਬਾਲੋ। ਇਸ ਨਾਲ ਦਸਤ ਅਤੇ ਹੈਜਾ ਵਰਗੀਆਂ ਬਿਮਾਰੀਆਂ ਤੋਂ ਬਚਿਆ ਜਾ ਸਕਦਾ ਹੈ।"
+                "tipHi": "Boil water for at least 10-15 minutes to remove harmful bacteria, viruses, and parasites. This simple method prevents waterborne diseases like diarrhea and cholera."
             },
             {
                 "id": 4,
                 "myth": "ਬੁਖਾਰ ਹੋਣ 'ਤੇ ਠੰਡਾ ਪਾਣੀ ਨਹੀਂ ਵਰਤਣਾ ਚਾਹੀਦਾ।",
-                "mythHi": "ਬੁਖਾਰ ਹੋਣ 'ਤੇ ਠੰਡਾ ਪਾਣੀ ਨਹੀਂ ਵਰਤਣਾ ਚਾਹੀਦਾ।",
+                "mythHi": "Fever should not be treated with cold water.",
                 "fact": "ਗਿੱਲੇ ਕੱਪੜੇ ਦੀਆਂ ਪੱਟੀਆਂ ਬੁਖਾਰ ਘਟਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ।",
-                "factHi": "ਗਿੱਲੇ ਕੱਪੜੇ ਦੀਆਂ ਪੱਟੀਆਂ ਬੁਖਾਰ ਘਟਾਉਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ।",
+                "factHi": "Cold compress helps reduce fever safely.",
                 "tip": "ਤਾਜ਼ੇ ਪਾਣੀ ਵਿੱਚ ਭਿੱਜਿਆ ਕੱਪੜਾ ਮੱਥੇ 'ਤੇ ਰੱਖੋ। ਇਸ ਨਾਲ ਸਰੀਰ ਦਾ ਤਾਪਮਾਨ ਘੱਟ ਹੁੰਦਾ ਹੈ। ਬਹੁਤ ਜ਼ਿਆਦਾ ਠੰਡਾ ਜਾਂ ਬਰਫ ਵਾਲਾ ਪਾਣੀ ਨਾ ਵਰਤੋ।",
-                "tipHi": "ਤਾਜ਼ੇ ਪਾਣੀ ਵਿੱਚ ਭਿੱਜਿਆ ਕੱਪੜਾ ਮੱਥੇ 'ਤੇ ਰੱਖੋ। ਇਸ ਨਾਲ ਸਰੀਰ ਦਾ ਤਾਪਮਾਨ ਘੱਟ ਹੁੰਦਾ ਹੈ। ਬਹੁਤ ਜ਼ਿਆਦਾ ਠੰਡਾ ਜਾਂ ਬਰਫ ਵਾਲਾ ਪਾਣੀ ਨਾ ਵਰਤੋ।"
+                "tipHi": "Use a clean cloth soaked in room temperature or slightly cool water on the forehead. This helps bring down body temperature naturally. Avoid ice-cold water as it may cause shivering."
             },
             {
                 "id": 5,
                 "myth": "ਸਿਰਫ ਸ਼ਹਿਰੀ ਹਸਪਤਾਲਾਂ ਵਿੱਚ ਹੀ ਵਧੀਆ ਇਲਾਜ ਮਿਲਦਾ ਹੈ।",
-                "mythHi": "ਸਿਰਫ ਸ਼ਹਿਰੀ ਹਸਪਤਾਲਾਂ ਵਿੱਚ ਹੀ ਵਧੀਆ ਇਲਾਜ ਮਿਲਦਾ ਹੈ।",
+                "mythHi": "Only city hospitals provide good treatment.",
                 "fact": "ਸਰਕਾਰੀ ਨਿੱਕੇ ਹਸਪਤਾਲਾਂ (PHC) ਵਿੱਚ ਵੀ ਮੁਫਤ ਅਤੇ ਵਧੀਆ ਇਲਾਜ ਮਿਲਦਾ ਹੈ।",
-                "factHi": "ਸਰਕਾਰੀ ਨਿੱਕੇ ਹਸਪਤਾਲਾਂ (PHC) ਵਿੱਚ ਵੀ ਮੁਫਤ ਅਤੇ ਵਧੀਆ ਇਲਾਜ ਮਿਲਦਾ ਹੈ।",
+                "factHi": "Government Primary Health Centres (PHCs) also give free, quality care.",
                 "tip": "PHC ਵਿੱਚ ਮੁਫਤ ਦਵਾਈਆਂ, ਟੀਕੇ ਅਤੇ ਮੁਢਲੀ ਸਹਾਇਤਾ ਮਿਲਦੀ ਹੈ। ਆਸ਼ਾ ਵਰਕਰ ਅਤੇ ਨਰਸਾਂ ਤੁਹਾਡੀ ਮਦਦ ਲਈ ਹਮੇਸ਼ਾ ਤਿਆਰ ਰਹਿੰਦੀਆਂ ਹਨ।",
-                "tipHi": "PHC ਵਿੱਚ ਮੁਫਤ ਦਵਾਈਆਂ, ਟੀਕੇ ਅਤੇ ਮੁਢਲੀ ਸਹਾਇਤਾ ਮਿਲਦੀ ਹੈ। ਆਸ਼ਾ ਵਰਕਰ ਅਤੇ ਨਰਸਾਂ ਤੁਹਾਡੀ ਮਦਦ ਲਈ ਹਮੇਸ਼ਾ ਤਿਆਰ ਰਹਿੰਦੀਆਂ ਹਨ।"
+                "tipHi": "PHCs provide free medicines, vaccinations, maternal care, and basic treatments. ASHA workers and ANMs are trained to help with common health issues. Visit your nearest PHC for checkups."
             },
             {
                 "id": 6,
                 "myth": "ਗਰਭ ਅਵਸਥਾ ਦੌਰਾਨ ਪਪੀਤਾ ਖਾਣ ਨਾਲ ਗਰਭਪਾਤ ਹੁੰਦਾ ਹੈ।",
-                "mythHi": "गर्भावस्था के दौरान पपीता खाने से गर्भपात होता है।",
+                "mythHi": "Eating papaya during pregnancy causes miscarriage.",
                 "fact": "ਪੱਕਿਆ ਹੋਇਆ ਪਪੀਤਾ ਸੁਰੱਖਿਅਤ ਹੈ ਅਤੇ ਵਿਟਾਮਿਨਾਂ ਨਾਲ ਭਰਪੂਰ ਹੁੰਦਾ ਹੈ।",
-                "factHi": "पका हुआ पपीता सुरक्षित होता है और विटामिन से भरपूर होता है।",
+                "factHi": "Ripe papaya is safe and full of vitamins.",
                 "tip": "ਪੂਰੀ ਤਰ੍ਹਾਂ ਪੱਕਿਆ ਪਪੀਤਾ ਗਰਭਵਤੀ ਔਰਤਾਂ ਲਈ ਬਹੁਤ ਵਧੀਆ ਹੈ ਕਿਉਂਕਿ ਇਸ ਵਿੱਚ ਵਿਟਾਮਿਨ ਏ ਅਤੇ ਸੀ ਹੁੰਦਾ ਹੈ। ਕੱਚੇ ਜਾਂ ਅੱਧੇ ਪੱਕੇ ਪਪੀਤੇ ਤੋਂ ਬਚੋ ਕਿਉਂਕਿ ਇਸ ਵਿੱਚ ਲੈਟੇਕਸ ਹੁੰਦਾ ਹੈ ਜੋ ਨੁਕਸਾਨਦੇਹ ਹੋ ਸਕਦਾ ਹੈ।",
-                "tipHi": "पूरी तरह से पका हुआ पपीता गर्भवती महिलाओं के लिए बहुत अच्छा होता है क्योंकि इसमें विटामिन ए और सी होता है। कच्चे या अधपके पपीते से बचें क्योंकि इसमें लैटेक्स होता है जो हानिकारक हो सकता है।"
+                "tipHi": "Fully ripe papaya is excellent for pregnant women as it contains Vitamin A and C. Avoid raw or semi-ripe papaya as it contains latex which might be harmful."
             },
             {
                 "id": 7,
                 "myth": "ਮਾਨਸਿਕ ਬਿਮਾਰੀ ਬੁਰੀਆਂ ਆਤਮਾਵਾਂ ਕਾਰਨ ਹੁੰਦੀ ਹੈ।",
-                "mythHi": "मानसिक बीमारी बुरी आत्माओं के कारण होती है।",
+                "mythHi": "Mental illness is caused by evil spirits.",
                 "fact": "ਇਹ ਇੱਕ ਡਾਕਟਰੀ ਸਮੱਸਿਆ ਹੈ ਜਿਸਦਾ ਇਲਾਜ ਡਾਕਟਰ ਕਰ ਸਕਦੇ ਹਨ।",
-                "factHi": "यह एक चिकित्सीय स्थिति है जिसका इलाज डॉक्टरों द्वारा किया जा सकता है।",
+                "factHi": "It is a medical condition treatable by doctors.",
                 "tip": "ਮਾਨਸਿਕ ਸਿਹਤ ਸਮੱਸਿਆਵਾਂ ਦਿਮਾਗੀ ਵਿਕਾਰ ਹਨ, ਕੋਈ ਅਲੌਕਿਕ ਘਟਨਾਵਾਂ ਨਹੀਂ। ਮਨੋਵਿਗਿਆਨੀ ਥੈਰੇਪੀ ਅਤੇ ਦਵਾਈ ਨਾਲ ਇਨ੍ਹਾਂ ਦਾ ਇਲਾਜ ਕਰ ਸਕਦੇ ਹਨ।",
-                "tipHi": "मानसिक स्वास्थ्य समस्याएं मस्तिष्क संबंधी विकार हैं, कोई अलौकिक घटना नहीं। मनोचिकित्सक और मनोवैज्ञानिक चिकित्सा और दवा के साथ उनका इलाज कर सकते हैं।"
+                "tipHi": "Mental health issues are brain disorders, not supernatural events. Psychiatrists and psychologists can treat them with therapy and medication."
             },
             {
                 "id": 8,
                 "myth": "ਐਂਟੀਬਾਇਓਟਿਕਸ ਸਰਦੀ ਅਤੇ ਫਲੂ ਨੂੰ ਠੀਕ ਕਰਦੇ ਹਨ।",
-                "mythHi": "एंटीबायोटिक्स सर्दी और फ्लू को ठीक करते हैं।",
+                "mythHi": "Antibiotics cure colds and flu.",
                 "fact": "ਐਂਟੀਬਾਇਓਟਿਕਸ ਸਿਰਫ ਬੈਕਟੀਰੀਆ ਨੂੰ ਮਾਰਦੇ ਹਨ, ਵਾਇਰਸਾਂ ਨੂੰ ਨਹੀਂ।",
-                "factHi": "एंटीबायोटिक्स केवल बैक्टीरिया को मारते हैं, वायरस को नहीं।",
+                "factHi": "Antibiotics only kill bacteria, not viruses.",
                 "tip": "ਸਰਦੀ ਅਤੇ ਫਲੂ ਵਾਇਰਸ ਕਾਰਨ ਹੁੰਦੇ ਹਨ। ਇਨ੍ਹਾਂ ਲਈ ਐਂਟੀਬਾਇਓਟਿਕਸ ਲੈਣ ਨਾਲ ਕੋਈ ਫਾਇਦਾ ਨਹੀਂ ਹੋਵੇਗਾ। ਆਰਾਮ ਅਤੇ ਪਾਣੀ ਪੀਣਾ ਸਭ ਤੋਂ ਵਧੀਆ ਹੈ।",
-                "tipHi": "सर्दी और फ्लू वायरस के कारण होते हैं। उनके लिए एंटीबायोटिक लेने से कोई मदद नहीं मिलेगी और एंटीबायोटिक प्रतिरोध बढ़ सकता है। आराम और जलयोजन सबसे अच्छा है।"
+                "tipHi": "Colds and flu are caused by viruses. Taking antibiotics for them won't help and can increase antibiotic resistance. Rest and hydration are best."
             },
             {
                 "id": 9,
                 "myth": "ਮਰਦਾਂ ਨੂੰ ਪਰਿਵਾਰ ਨਿਯੋਜਨ ਬਾਰੇ ਚਿੰਤਾ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।",
-                "mythHi": "पुरुषों को परिवार नियोजन के बारे में चिंता करने की जरूरत नहीं है।",
+                "mythHi": "Men don't need to worry about family planning.",
                 "fact": "ਪਰਿਵਾਰ ਨਿਯੋਜਨ ਇੱਕ ਸਾਂਝੀ ਜ਼ਿੰਮੇਵਾਰੀ ਹੈ।",
-                "factHi": "परिवार नियोजन एक साझा जिम्मेदारी है।",
+                "factHi": "Family planning is a shared responsibility.",
                 "tip": "ਮਰਦ ਇਸ ਵਿੱਚ ਅਹਿਮ ਭੂਮਿਕਾ ਨਿਭਾਉਂਦੇ ਹਨ। ਕੰਡੋਮ ਗਰਭ ਨਿਰੋਧ ਦਾ ਇੱਕ ਸੁਰੱਖਿਅਤ ਤਰੀਕਾ ਹੈ ਜਿਸ ਵਿੱਚ ਮਰਦ ਸ਼ਾਮਲ ਹੁੰਦੇ ਹਨ।",
-                "tipHi": "पुरुष महत्वपूर्ण भूमिका निभाते हैं। कंडोम गर्भनिरोधक का एक सुरक्षित, प्रभावी तरीका है जिसमें पुरुष शामिल होते हैं और यौन संचारित संक्रमणों से भी बचाता है।"
+                "tipHi": "Men play a crucial role. Condoms are a safe, effective method of contraception that involves men and also protects against sexually transmitted infections."
             },
             {
                 "id": 10,
                 "myth": "ਗਰਭ ਅਵਸਥਾ ਦੌਰਾਨ ਘੱਟ ਪਾਣੀ ਪੀਣ ਨਾਲ ਸੋਜ ਘੱਟ ਜਾਂਦੀ ਹੈ।",
-                "mythHi": "गर्भावस्था के दौरान कम पानी पीने से सूजन कम हो जाती है।",
+                "mythHi": "Drinking less water reduces swelling during pregnancy.",
                 "fact": "ਲੋੜੀਂਦਾ ਪਾਣੀ ਪੀਣ ਨਾਲ ਅਸਲ ਵਿੱਚ ਸੋਜ ਘੱਟ ਹੁੰਦੀ ਹੈ।",
-                "factHi": "पर्याप्त पानी पीने से वास्तव में सूजन कम करने में मदद मिलती है।",
+                "factHi": "Drinking enough water actually helps reduce swelling.",
                 "tip": "ਹਾਈਡਰੇਟਿਡ ਰਹਿਣ ਨਾਲ ਸਰੀਰ ਵਿੱਚੋਂ ਜ਼ਹਿਰੀਲੇ ਪਦਾਰਥ ਬਾਹਰ ਨਿਕਲਦੇ ਹਨ। ਗਰਭਵਤੀ ਔਰਤਾਂ ਨੂੰ ਰੋਜ਼ਾਨਾ 8-10 ਗਲਾਸ ਪਾਣੀ ਪੀਣਾ ਚਾਹੀਦਾ ਹੈ।",
-                "tipHi": "हाइड्रेटेड रहने से अपशिष्ट को बाहर निकालने में मदद मिलती है और तरल प्रतिधारण को रोकता है। गर्भवती महिलाओं को रोजाना 8-10 गिलास पानी पीना चाहिए।"
+                "tipHi": "Staying hydrated helps flush out waste and prevents fluid retention. Pregnant women should drink 8-10 glasses of water daily."
             },
             {
                 "id": 11,
                 "myth": "ਐਨਕਾਂ ਲਗਾਉਣ ਨਾਲ ਅੱਖਾਂ ਦੀ ਰੋਸ਼ਨੀ ਹੋਰ ਖਰਾਬ ਹੋ ਜਾਂਦੀ ਹੈ।",
-                "mythHi": "चश्मा पहनने से आंखों की रोशनी और खराब हो जाती है।",
+                "mythHi": "Wearing glasses makes eyesight worse.",
                 "fact": "ਐਨਕਾਂ ਨਜ਼ਰ ਨੂੰ ਠੀਕ ਕਰਦੀਆਂ ਹਨ ਅਤੇ ਅੱਖਾਂ ਦੇ ਤਣਾਅ ਨੂੰ ਘਟਾਉਂਦੀਆਂ ਹਨ।",
-                "factHi": "चश्मा दृष्टि को ठीक करता है और आंखों के तनाव को कम करता है।",
+                "factHi": "Glasses correct vision and reduce eye strain.",
                 "tip": "ਐਨਕਾਂ ਤੁਹਾਨੂੰ ਸਾਫ਼ ਦੇਖਣ ਵਿੱਚ ਮਦਦ ਕਰਦੀਆਂ ਹਨ ਅਤੇ ਅੱਖਾਂ 'ਤੇ ਜ਼ੋਰ ਪੈਣ ਤੋਂ ਰੋਕਦੀਆਂ ਹਨ। ਇਹ ਤੁਹਾਡੀਆਂ ਅੱਖਾਂ ਨੂੰ ਕਮਜ਼ੋਰ ਨਹੀਂ ਕਰਦੀਆਂ।",
-                "tipHi": "चश्मा आपको स्पष्ट रूप से देखने में मदद करता है और आपकी आंखों को बहुत मेहनत करने से रोकता है। वे आपकी आंखों को कमजोर नहीं करते हैं; उन्हें पहनने से इनकार करने पर सिरदर्द हो सकता है।"
+                "tipHi": "Glasses help you see clearly and stop your eyes from working too hard. They do not weaken your eyes; refusing to wear them might cause headaches."
             },
             {
                 "id": 12,
                 "myth": "ਡੇਂਗੂ ਦੇ ਮੱਛਰ ਸਿਰਫ਼ ਰਾਤ ਨੂੰ ਹੀ ਕੱਟਦੇ ਹਨ।",
-                "mythHi": "डेंगू के मच्छर केवल रात में काटते हैं।",
+                "mythHi": "Dengue mosquitoes only bite at night.",
                 "fact": "ਉਹ ਮੁੱਖ ਤੌਰ 'ਤੇ ਦਿਨ ਵੇਲੇ ਕੱਟਦੇ ਹਨ।",
-                "factHi": "वे मुख्य रूप से दिन के दौरान काटते हैं।",
+                "factHi": "They primarily bite during the day.",
                 "tip": "ਏਡੀਜ਼ ਮੱਛਰ, ਜੋ ਡੇਂਗੂ ਫੈਲਾਉਂਦੇ ਹਨ, ਸਵੇਰੇ ਅਤੇ ਸ਼ਾਮ ਵੇਲੇ ਜ਼ਿਆਦਾ ਸਰਗਰਮ ਹੁੰਦੇ ਹਨ। ਦਿਨ ਵੇਲੇ ਵੀ ਮੱਛਰ ਭਜਾਉਣ ਵਾਲੀਆਂ ਦਵਾਈਆਂ ਵਰਤੋ।",
-                "tipHi": "एडीज मच्छर, जो डेंगू फैलाते हैं, सुबह और देर दोपहर में सबसे अधिक सक्रिय होते हैं। दिन के दौरान भी विकर्षक का प्रयोग करें और पूरी आस्तीन वाले कपड़े पहनें।"
+                "tipHi": "Aedes mosquitoes, which spread dengue, are most active early morning and late afternoon. Use repellents and wear full sleeves even during the day."
             },
             {
                 "id": 13,
                 "myth": "ਨਵਜੰਮੇ ਬੱਚਿਆਂ ਨੂੰ ਪਹਿਲਾਂ ਸ਼ਹਿਦ ਜਾਂ ਪਾਣੀ ਦੇਣਾ ਚਾਹੀਦਾ ਹੈ।",
-                "mythHi": "नवजात शिशुओं को पहले शहद या पानी दिया जाना चाहिए।",
+                "mythHi": "Newborns should be given honey or water first.",
                 "fact": "6 ਮਹੀਨਿਆਂ ਤੱਕ ਸਿਰਫ ਮਾਂ ਦਾ ਦੁੱਧ ਹੀ ਦੇਣਾ ਚਾਹੀਦਾ ਹੈ।",
-                "factHi": "6 महीने तक केवल मां का दूध ही देना चाहिए।",
+                "factHi": "Only breastmilk should be given for 6 months.",
                 "tip": "ਮਾਂ ਦੇ ਦੁੱਧ ਵਿੱਚ ਬੱਚੇ ਲਈ ਲੋੜੀਂਦੇ ਸਾਰੇ ਤੱਤ ਹੁੰਦੇ ਹਨ। 1 ਸਾਲ ਤੋਂ ਘੱਟ ਉਮਰ ਦੇ ਬੱਚਿਆਂ ਲਈ ਸ਼ਹਿਦ ਖ਼ਤਰਨਾਕ ਹੋ ਸਕਦਾ ਹੈ।",
-                "tipHi": "मां के दूध में वह सारा पानी और पोषक तत्व होते हैं जो बच्चे को चाहिए होते हैं। बोटुलिज़्म के खतरे के कारण 1 साल से कम उम्र के बच्चों के लिए शहद खतरनाक हो सकता है।"
+                "tipHi": "Breastmilk contains all the water and nutrients a baby needs. Honey can be dangerous for infants under 1 year due to botulism risk."
             },
             {
                 "id": 14,
                 "myth": "ਟੀਬੀ ਖ਼ਾਨਦਾਨੀ ਹੈ ਅਤੇ ਇਸਦਾ ਇਲਾਜ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
-                "mythHi": "टीबी वंशानुगत है और इसका इलाज नहीं किया जा सकता है।",
+                "mythHi": "TB is hereditary and cannot be cured.",
                 "fact": "ਟੀਬੀ ਛੂਤ ਦੀ ਬਿਮਾਰੀ ਹੈ ਪਰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਇਲਾਜਯੋਗ ਹੈ।",
-                "factHi": "टीबी संक्रामक है लेकिन पूरी तरह से इलाज योग्य है।",
+                "factHi": "TB is infectious but completely curable.",
                 "tip": "ਜਦੋਂ ਕੋਈ ਖੰਘਦਾ ਹੈ ਤਾਂ ਟੀਬੀ ਹਵਾ ਰਾਹੀਂ ਫੈਲਦੀ ਹੈ। ਇਹ ਜੈਨੇਟਿਕ ਨਹੀਂ ਹੈ। ਡੌਟਸ (DOTS) ਇਲਾਜ ਨਾਲ ਇਸਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਠੀਕ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।",
-                "tipHi": "जब कोई खांसता है तो तपेदिक हवा के माध्यम से फैलता है। यह आनुवंशिक नहीं है। डॉट्स (DOTS) उपचार के एक पूर्ण पाठ्यक्रम के साथ, इसे पूरी तरह से ठीक किया जा सकता है।"
+                "tipHi": "Tuberculosis spreads through air when someone coughs. It is not genetic. With a full course of DOTS treatment, it can be cured completely."
             },
             {
                 "id": 15,
                 "myth": "ਸੱਪ ਦੇ ਕੱਟਣ 'ਤੇ, ਕੱਟ ਕੇ ਚੂਸਣਾ ਚਾਹੀਦਾ ਹੈ।",
-                "mythHi": "सांप के काटने पर काट कर चूसना चाहिए।",
+                "mythHi": "Snake bites should be cut and sucked.",
                 "fact": "ਕਦੇ ਵੀ ਜ਼ਖ਼ਮ ਨੂੰ ਕੱਟੋ ਜਾਂ ਚੂਸੋ ਨਾ; ਹਸਪਤਾਲ ਜਾਓ।",
-                "factHi": "घाव को कभी न काटें या चूसें; अस्पताल जाएं।",
+                "factHi": "Never cut or suck the wound; go to hospital.",
                 "tip": "ਕੱਟੇ ਹੋਏ ਅੰਗ ਨੂੰ ਹਿਲਣ ਨਾ ਦਿਓ ਅਤੇ ਮਰੀਜ਼ ਨੂੰ ਸ਼ਾਂਤ ਰੱਖੋ। ਕੱਟਣ ਜਾਂ ਚੂਸਣ ਨਾਲ ਸਮਾਂ ਬਰਬਾਦ ਹੁੰਦਾ ਹੈ। ਹਸਪਤਾਲ ਵਿੱਚ ਐਂਟੀਵੈਨਮ ਹੀ ਇੱਕੋ ਇੱਕ ਇਲਾਜ ਹੈ।",
-                "tipHi": "काटे गए अंग को स्थिर करें और रोगी को शांत रखें। काटने या चूसने से समय बर्बाद होता है और संक्रमण हो सकता है। अस्पताल में एंटीवेनम ही एकमात्र इलाज है।"
+                "tipHi": "Immobilize the bitten limb and keep the patient calm. Cutting or sucking wastes time and can cause infection. Antivenom at a hospital is the only cure."
             }
         ]
     },

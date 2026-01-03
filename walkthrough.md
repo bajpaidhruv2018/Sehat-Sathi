@@ -56,3 +56,12 @@ I have completely overhauled the TTS system to be granular, language-aware, and 
     *   Solved desktop overflow issues for languages with longer text (e.g., Tamil).
     *   Enabled horizontal scrolling for navigation items while hiding scrollbars for a clean look.
     *   Fixed overlap between navigation links and the language switcher by adjusting container width constraints.
+
+6.  **Medical Triage Assistant (Backend)**:
+    *   Created `supabase/functions/triage-assist` Edge Function.
+    *   Integrated **Gemini AI (`gemini-1.5-flash`)** to analyze user symptoms (`bodyPart` + `userDescription`).
+    *   Returns structured JSON with:
+        *   **Bilingual Questions**: 3 relevant questions in English & Hindi.
+        *   **Severity Assessment**: "Low", "Medium", or "High".
+        *   **Actionable Advice**: Simple first-aid steps in Hindi/English.
+        *   **Maps Integration**: Specific search terms (e.g., "Anti-venom", "Cardiology") for the hospital locator.
