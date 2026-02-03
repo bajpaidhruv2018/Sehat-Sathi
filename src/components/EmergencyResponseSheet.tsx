@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { createClient } from "@supabase/supabase-js";
+
+// Initialize Supabase client with specific credentials for this component
+const supabaseUrl = "https://nqiyyailhxmavrcokrmv.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5xaXl5YWlsaHhtYXZyY29rcm12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5NTMzNzQsImV4cCI6MjA4NTUyOTM3NH0.py8zZIE91mqXq3SDw6BIDJEFw5qCLuCMAISTZrnzt7M";
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface HospitalResponse {
     id: string;
     hospital_name: string;
     status: "BED AVAILABLE" | "HOSPITAL FULL";
+    bed_availability: boolean; // true = Available, false = Full
     medical_advice: string;
     created_at: string;
+    responded_at: string;
+    eta: string;
+    emergency_id: string;
 }
 
 interface EmergencyResponseSheetProps {
@@ -16,15 +25,14 @@ interface EmergencyResponseSheetProps {
 const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) => {
     const [responses, setResponses] = useState<HospitalResponse[]>([]);
 
-    // Poll for responses
     useEffect(() => {
         if (!emergencyId) return;
 
+        // Initial fetch of existing responses
         const fetchResponses = async () => {
-            console.log("Polling for responses for emergency ID:", emergencyId);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const { data, error } = await (supabase as any)
-                .from("hospital_responses")
+            console.log("Fetching initial responses for emergency ID:", emergencyId);
+            const { data, error } = await supabase
+                .from("Hospital_Responses")
                 .select("*")
                 .eq("emergency_id", emergencyId)
                 .order("created_at", { ascending: false });
@@ -32,26 +40,50 @@ const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) =>
             if (error) {
                 console.error("Error fetching responses:", error);
             } else if (data) {
-                // Cast to match our interface since it's not in the generated types yet
                 setResponses(data as unknown as HospitalResponse[]);
             }
         };
 
-        // Initial fetch
         fetchResponses();
 
-        // Poll every 5 seconds
-        const interval = setInterval(fetchResponses, 5000);
+        // Subscribe to real-time changes
+        const channel = supabase
+            .channel('hospital_replies')
+            .on(
+                'postgres_changes',
+                {
+                    event: 'INSERT',
+                    schema: 'public',
+                    table: 'Hospital_Responses',
+                    filter: `emergency_id=eq.${emergencyId}`,
+                },
+                (payload) => {
+                    console.log('New response received:', payload);
+                    const newResponse = payload.new as HospitalResponse;
+                    setResponses((prev) => [newResponse, ...prev]);
+                }
+            )
+            .subscribe();
 
-        return () => clearInterval(interval);
+        // Cleanup subscription on unmount or id change
+        return () => {
+            supabase.removeChannel(channel);
+        };
     }, [emergencyId]);
 
     if (!emergencyId) return null;
 
     return (
         <div className="mt-8 border rounded-lg overflow-hidden shadow-sm bg-white" style={{ fontFamily: 'sans-serif' }}>
-            <div className="bg-gray-50 px-6 py-4 border-b">
+            <div className="bg-gray-50 px-6 py-4 border-b flex justify-between items-center">
                 <h3 className="text-lg font-semibold text-gray-800">Hospital Responses</h3>
+                <div className="flex items-center gap-2">
+                    <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    <span className="text-xs font-medium text-green-700">Live Tracking Active</span>
+                </div>
             </div>
 
             {responses.length === 0 ? (
@@ -68,15 +100,34 @@ const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) =>
                     {responses.map((response) => (
                         <div key={response.id} className="p-6 hover:bg-gray-50 transition-colors">
                             <div className="flex justify-between items-start mb-3">
-                                <h4 className="font-bold text-xl text-gray-900">{response.hospital_name}</h4>
-                                {response.status === "BED AVAILABLE" ? (
+                                <div>
+                                    <h4 className="font-bold text-xl text-gray-900">{response.hospital_name}</h4>
+                                    {response.eta && (
+                                        <p className="text-sm text-blue-600 font-medium mt-1">
+                                            🚑 ETA: {response.eta}
+                                        </p>
+                                    )}
+                                </div>
+
+                                {response.bed_availability === true ? (
                                     <span className="px-3 py-1 bg-green-100 text-green-800 text-sm font-bold rounded-full border border-green-200">
-                                        BED AVAILABLE
+                                        Available
+                                    </span>
+                                ) : response.bed_availability === false ? (
+                                    <span className="px-3 py-1 bg-red-100 text-red-800 text-sm font-bold rounded-full border border-red-200">
+                                        Full
                                     </span>
                                 ) : (
-                                    <span className="px-3 py-1 bg-red-100 text-red-800 text-sm font-bold rounded-full border border-red-200">
-                                        HOSPITAL FULL
-                                    </span>
+                                    // Fallback to strict string status matching if bed_availability is missing
+                                    response.status === "BED AVAILABLE" ? (
+                                        <span className="px-3 py-1 bg-green-100 text-green-800 text-sm font-bold rounded-full border border-green-200">
+                                            BED AVAILABLE
+                                        </span>
+                                    ) : (
+                                        <span className="px-3 py-1 bg-red-100 text-red-800 text-sm font-bold rounded-full border border-red-200">
+                                            HOSPITAL FULL
+                                        </span>
+                                    )
                                 )}
                             </div>
 
@@ -85,8 +136,12 @@ const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) =>
                                 <p className="text-gray-700">{response.medical_advice}</p>
                             </div>
 
-                            <div className="mt-3 text-xs text-gray-400 text-right">
-                                Received: {new Date(response.created_at).toLocaleTimeString()}
+                            <div className="mt-3 flex justify-between items-center text-xs text-gray-500">
+                                <span>
+                                    Responded: {response.responded_at
+                                        ? new Date(response.responded_at).toLocaleTimeString()
+                                        : new Date(response.created_at).toLocaleTimeString()}
+                                </span>
                             </div>
                         </div>
                     ))}
