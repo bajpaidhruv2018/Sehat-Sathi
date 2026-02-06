@@ -45,7 +45,7 @@ const SOSButton = () => {
           </div>
         </button>
       </DialogTrigger>
-      <DialogContent className="max-w-[98vw] w-full h-[98vh] p-0 flex flex-col gap-0 overflow-hidden bg-background border-none rounded-none sm:rounded-xl">
+      <DialogContent className="max-w-[98vw] w-full h-[98dvh] p-0 flex flex-col gap-0 overflow-hidden bg-background border-none rounded-none sm:rounded-xl">
         <DialogHeader className="p-4 md:p-6 pb-2 shrink-0 border-b bg-white dark:bg-background z-10 flex flex-row items-center justify-between">
           <div>
             <DialogTitle className="text-2xl flex items-center gap-2 text-red-600">
@@ -72,7 +72,7 @@ const SOSButton = () => {
         </div>
 
         {/* Compact Footer: Call 108 Button */}
-        <div className="p-3 bg-white dark:bg-background border-t shrink-0">
+        <div className="p-3 pb-8 bg-white dark:bg-background border-t shrink-0">
           <Button
             onClick={handleAmbulanceCall}
             variant="destructive"
