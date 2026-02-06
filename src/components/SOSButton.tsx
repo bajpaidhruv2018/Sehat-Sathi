@@ -65,7 +65,7 @@ const SOSButton = () => {
         </DialogHeader>
 
         {/* Main Content Area: form and response sheet */}
-        <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-gray-50/50 dark:bg-black/20">
+        <div className="flex-1 overflow-hidden p-4 md:p-6 bg-gray-50/50 dark:bg-black/20">
           <div className="h-full w-full mx-auto">
             <EmergencyAccessTab />
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { useTranslation } from "react-i18next";
 
@@ -8,12 +8,12 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 interface HospitalResponse {
-    id: string;
+    response_id: string; // Changed from id
     hospital_name: string;
-    status: "BED AVAILABLE" | "HOSPITAL FULL";
+    // status: "BED AVAILABLE" | "HOSPITAL FULL"; // Removed as not in DB
     bed_availability: boolean; // true = Available, false = Full
     medical_advice: string;
-    created_at: string;
+    // created_at: string; // Removed as not in DB
     responded_at: string;
     eta: string;
     emergency_id: string;
@@ -26,27 +26,40 @@ interface EmergencyResponseSheetProps {
 const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) => {
     const { t } = useTranslation();
     const [responses, setResponses] = useState<HospitalResponse[]>([]);
+    const [fetchError, setFetchError] = useState<string | null>(null);
+    const [channelStatus, setChannelStatus] = useState<string>("CONNECTING");
 
     useEffect(() => {
         if (!emergencyId) return;
 
-        // Initial fetch of existing responses
+        // Reset responses on new ID to prevent flash of old data
+        setResponses([]);
+
+        // Shared fetch function
         const fetchResponses = async () => {
-            console.log("Fetching initial responses for emergency ID:", emergencyId);
+            console.log("Fetching responses for emergency ID:", emergencyId);
             const { data, error } = await supabase
                 .from("Hospital_Responses")
                 .select("*")
                 .eq("emergency_id", emergencyId)
-                .order("created_at", { ascending: false });
+                .order("responded_at", { ascending: false });
 
             if (error) {
                 console.error("Error fetching responses:", error);
+                setFetchError(JSON.stringify(error));
             } else if (data) {
+                // Clear error if success
+                setFetchError(null);
                 setResponses(data as unknown as HospitalResponse[]);
             }
         };
 
+        // Initial fetch
         fetchResponses();
+
+        // Rapid retry for the first few seconds to catch immediate webhook updates
+        const shyRetry1 = setTimeout(fetchResponses, 1000);
+        const shyRetry2 = setTimeout(fetchResponses, 2000);
 
         // Subscribe to real-time changes
         const channel = supabase
@@ -65,13 +78,50 @@ const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) =>
                     setResponses((prev) => [newResponse, ...prev]);
                 }
             )
-            .subscribe();
+            .subscribe((status) => {
+                console.log("Subscription status:", status);
+                setChannelStatus(status);
+            });
 
         // Cleanup subscription on unmount or id change
         return () => {
             supabase.removeChannel(channel);
+            clearTimeout(shyRetry1);
+            clearTimeout(shyRetry2);
         };
     }, [emergencyId]);
+
+    // Separate Polling Effect
+    useEffect(() => {
+        if (!emergencyId) return;
+
+        let pollInterval: NodeJS.Timeout;
+
+        // Poll if we are NOT successfully subscribed (covers CONNECTING, ERROR, CLOSED, TIMED_OUT)
+        if (channelStatus !== 'SUBSCRIBED') {
+            console.log("Realtime not ready (Status: " + channelStatus + "), using polling...");
+
+            // Define fetch function again for polling scope
+            const pollResponses = async () => {
+                const { data, error } = await supabase
+                    .from("Hospital_Responses")
+                    .select("*")
+                    .eq("emergency_id", emergencyId)
+                    .order("responded_at", { ascending: false });
+
+                if (data) {
+                    setResponses(data as unknown as HospitalResponse[]);
+                }
+            };
+
+            // Poll every 1 second for faster updates
+            pollInterval = setInterval(pollResponses, 1000);
+        }
+
+        return () => {
+            if (pollInterval) clearInterval(pollInterval);
+        };
+    }, [emergencyId, channelStatus]);
 
     if (!emergencyId) return null;
 
@@ -115,7 +165,7 @@ const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) =>
                         }
 
                         return (
-                            <div key={response.id} className={`p-6 border-l-8 transition-all ${cardBg} ${isAvailable ? 'border-l-green-600' : isFull ? 'border-l-red-600' : 'border-l-gray-300'}`}>
+                            <div key={response.response_id} className={`p-6 border-l-8 transition-all ${cardBg} ${isAvailable ? 'border-l-green-600' : isFull ? 'border-l-red-600' : 'border-l-gray-300'}`}>
                                 <div className="flex flex-col gap-4">
                                     <div className="flex justify-between items-start">
                                         <div>
@@ -154,9 +204,7 @@ const EmergencyResponseSheet = ({ emergencyId }: EmergencyResponseSheetProps) =>
                                     </div>
 
                                     <div className={`text-sm font-medium opacity-60 text-right ${textColor}`}>
-                                        {t('sos.access.responded')} {response.responded_at
-                                            ? new Date(response.responded_at).toLocaleTimeString()
-                                            : new Date(response.created_at).toLocaleTimeString()}
+                                        {t('sos.access.responded')} {new Date(response.responded_at).toLocaleTimeString()}
                                     </div>
                                 </div>
                             </div>
