@@ -1,22 +1,23 @@
-# Update Workflow URLs
+# Fix Login Schema Error (Hardcoded Fallback)
 
-## Goal
-Update the production URLs for the emergency request workflow and the hospital response workflow (if used).
+## Goal Description
+The user cannot access the deployment dashboard to set Environment Variables. To resolve the "missing table" error (caused by missing/incorrect connection details), we will hardcode the Supabase URL and Key directly into the client initialization.
 
 ## User Review Required
-> [!IMPORTANT]
-> I found the emergency request URL usages in `src/components/EmergencyAccessTab.tsx` and will update it.
-> I did **not** find any direct usage of a "hospital response" webhook URL. The system uses Supabase Realtime for hospital responses.
-> I will proceed with updating the emergency request URL only, unless instructed otherwise.
+> [!WARNING]
+> **Security Warning**: Hardcoding credentials in `client.ts` means they will be visible in your public GitHub repository. Since this is a hackathon project, this is often acceptable, but be aware of the risk.
 
 ## Proposed Changes
+### Client Initialization
+- **Modify `src/integrations/supabase/client.ts`**:
+    - Replace `import.meta.env.VITE_SUPABASE_URL` with the actual URL string.
+    - Replace `import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY` with the actual Key string.
+    - Use the values found in your `.env` (or the ones you mistakenly pasted into `.gitignore`).
 
-### Frontend Components
-
-#### [MODIFY] [EmergencyAccessTab.tsx](file:///c:/College/hackathons/SehatSaathi/remote-well-reach/src/components/EmergencyAccessTab.tsx)
-- Update code to use `https://n8n-qi63.onrender.com/webhook/emergency-trigger` instead of `http://localhost:5678/webhook/emergency-trigger`.
+### Cleanup
+- **Fix `.gitignore`**: Remove the leaked keys from lines 26-27.
 
 ## Verification Plan
-
 ### Automated Tests
-- Run `npm run build` to ensure no build errors.
+- Run `npm run dev` to ensure it still works locally.
+- Redeploy and verify the production site.
