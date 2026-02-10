@@ -1,23 +1,22 @@
-# Fix Login Schema Error (Hardcoded Fallback)
+# Configure Chatbot to use a separate Supabase project
 
-## Goal Description
-The user cannot access the deployment dashboard to set Environment Variables. To resolve the "missing table" error (caused by missing/incorrect connection details), we will hardcode the Supabase URL and Key directly into the client initialization.
+The user wants the chatbot to use a dedicated Supabase project (URL: `https://ymcejzgkvlxepjaihqzs.supabase.co`) while the rest of the app continues to use the main project.
 
 ## User Review Required
-> [!WARNING]
-> **Security Warning**: Hardcoding credentials in `client.ts` means they will be visible in your public GitHub repository. Since this is a hackathon project, this is often acceptable, but be aware of the risk.
+
+- **Hardcoded Credentials**: I will strictly hardcode the provided URL and Anon Key into `ChatInterface.tsx` as requested. This is generally not recommended for production but fulfills the specific request "do not alter .env".
 
 ## Proposed Changes
-### Client Initialization
-- **Modify `src/integrations/supabase/client.ts`**:
-    - Replace `import.meta.env.VITE_SUPABASE_URL` with the actual URL string.
-    - Replace `import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY` with the actual Key string.
-    - Use the values found in your `.env` (or the ones you mistakenly pasted into `.gitignore`).
 
-### Cleanup
-- **Fix `.gitignore`**: Remove the leaked keys from lines 26-27.
+### Components
+
+#### [MODIFY] [src/components/ChatInterface.tsx](file:///c:/College/hackathons/SehatSaathi/remote-well-reach/src/components/ChatInterface.tsx)
+- Import `createClient` from `@supabase/supabase-js`.
+- Create a specific `chatSupabase` client instance using the provided credentials.
+- Update `handleSend` to use `chatSupabase.functions.invoke` instead of the global `supabase` client.
 
 ## Verification Plan
-### Automated Tests
-- Run `npm run dev` to ensure it still works locally.
-- Redeploy and verify the production site.
+
+### Manual Verification
+- I will verify the code changes ensure only `ChatInterface` uses the new client.
+- The user will need to test the chatbot. The previous 404 error should be resolved if the edge function is deployed on *this* new project.
